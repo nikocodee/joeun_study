@@ -14,10 +14,14 @@ public class ArrEx1 {
 //		if (arrInt2.equals("")) { //null은 속성이 없음
 			System.out.println("null이 아님");
 		} else {
-			System.out.println("null");
+			System.out.println("null******");
 		}
 		
 //		System.out.println(null);
+		
+		if(args.length > 0 && !"".equals(args[0])){
+			System.out.println(args[0]);
+		}
 
 	}
 
