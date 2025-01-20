@@ -42,6 +42,6 @@ class Return2 {
 		
 		return "";
 		
-		//return "홍길동"; // 에러발생
+//		return "홍길동"; // 에러발생
 	}
 }
