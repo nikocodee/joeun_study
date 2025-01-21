@@ -14,15 +14,18 @@ public class LocalValEx {
 		local.printAge1();
 		local.printAge2();
 		
+		int temp = 0;
 		// for문 블록 내에서의 변수 선언
 		for (int i=0; i<10; i++) {
-			int temp = 0;
+//			int temp = 0;
 			temp += i;
 		}
 		
-		//System.out.println(temp); // 에러
+		System.out.println(temp); // 에러
 
 	}
+	
+	
 
 }
 

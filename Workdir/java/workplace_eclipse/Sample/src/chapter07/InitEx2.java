@@ -30,8 +30,10 @@ public class InitEx2 {
 	static void sMethod2() {
 		
 		// 에러
-		//this.sVar = 0; // static 변수
-		//this.sMethod(); // static 메서드
+//		this.sVar = 0; // static 변수
+//		this.sMethod(); // static 메서드
+//		sVar = 0;
+//		sMethod();
 	}
 	
 
