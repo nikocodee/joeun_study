@@ -12,4 +12,8 @@ public class Parent {
 		System.out.println("부모가 달린다.");
 	}
 	
+//	void eat() {
+//		System.out.println("부모가 먹는다.");
+//	}
+	
 }
