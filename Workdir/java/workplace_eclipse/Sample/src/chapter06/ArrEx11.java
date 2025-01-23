@@ -27,7 +27,8 @@ public class ArrEx11 {
 			System.out.println("--------------------");
 		}
 
-		System.out.println("===========================");
+		
+//		System.out.println("===========================");
 
 		// 값 출력
 //		int i = 1;
