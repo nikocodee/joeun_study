@@ -18,7 +18,8 @@ public class ArrayListCompareLinkedList2 {
 		System.out.println("ArrayList 추가");
 		long start = System.currentTimeMillis();
 		for (int i=0; i<10000; i++) {
-			alist.add(500, "i");
+//			alist.add(500, "i");
+			alist.add(500, i+"");
 		}
 		long end = System.currentTimeMillis();
 		System.out.println(end-start);
