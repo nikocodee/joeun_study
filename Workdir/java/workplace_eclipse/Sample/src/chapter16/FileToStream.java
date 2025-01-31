@@ -15,7 +15,7 @@ public class FileToStream {
 		
 		try {
 			// Paths.get() 메서드 사용
-			Path path = Paths.get("src/chapter19/StrToStream.java");
+			Path path = Paths.get("src/chapter16/StrToStream.java");
 			Stream<String> stream = Files.lines(path, Charset.defaultCharset());
 			stream.forEach( s -> System.out.println(s));
 			stream.close();
@@ -26,7 +26,7 @@ public class FileToStream {
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			br.lines().forEach( s -> System.out.println(s));
-			stream.close();
+			br.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
