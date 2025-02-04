@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>선택자 스타일 지정</title>
+    <style>
+        dl dt, 
+        dl dd {line-height:30px;margin-bottom:1px;} 
+        dl dd:nth-of-type(2n+2){
+            color:#c00; 
+            background:#ee7;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>파스타 면의 종류</dt>
+        <dd>스파게티(Spaghetti) ...</dd>
+        <dd>링귀네(Linguine) ...</dd>
+        <dd>부카티니(Bucatini) ...</dd>
+        <dd>탈리아텔레(Tagliatelle) ...</dd>
+        <dd>페투치네(Fettuccine) ...</dd>
+        <dd>라자냐(Lasagna) ...</dd>
+        <dd>펜네(Penne) ...</dd>
+        <dd>푸실리(Fusilli)</dd>
+        <dd>기타</dd>
+    </dl>
+</body>
+</html>

@@ -39,6 +39,13 @@ public class GradeService {
 		return meanScore;
 	}
 	
+	public double getStudentMean(Student student) {
+		return student.getGrades().stream()
+				.mapToDouble(Grade::getScore)
+				.average()
+				.orElse(0.0);
+	}
+	
 	public double getOverallAverage() {
 		double result = students.values().stream() // 모든 student 리스트
 						.flatMap(student -> student.getGrades().stream()) // 원소별로 가져와서 스트림으로 변환
@@ -50,7 +57,9 @@ public class GradeService {
 	
 	public List<Student> sortStudentsByAverage(){
 		List<Student> result = students.values().stream()
-								.sorted(Comparator.comparingDouble(this::getStudentAverage).reversed())
+								// 원소 student로 넘겨줘야함 int는 안됨
+//								.sorted(Comparator.comparingDouble(this::getStudentAverage).reversed())
+								.sorted(Comparator.comparingDouble(this::getStudentMean).reversed())
 								.collect(Collectors.toList());
 		return result;
 	}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>선택자 스타일 지정</title>
+    <style>
+        ul{
+            list-style:none;
+        }
+        ul li{
+            line-height:30px;
+        }
+        ul li:empty:after{
+            content:"빈칸 입니다.";
+            color:#c00;
+            background:#eee;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>더조은아카데미컴퓨터학원</li>
+        <li>메가스터디</li>
+        <li>김영편입전문학원</li>
+        <li></li>
+        <li>프론트앤드 / 백앤드 문선종</li>
+    </ul>
+</body>
+</html>

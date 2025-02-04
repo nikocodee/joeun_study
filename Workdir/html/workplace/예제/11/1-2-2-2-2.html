@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>   
+    <title>RESPONSIVE</title>
+    <style>
+        * {margin:0;padding:0;}
+        img {vertical-align:middle;}
+        #wrap {width:100%;max-width:1600px;margin:0 auto;}
+        #wrap #section1 {width:100%;}
+        #wrap #section1 ul {width:100%;list-style:none;}
+        #wrap #section1 ul li {float:left;width:100%;}
+        #wrap #section1 ul li img {width:100%;}
+        @media screen and (min-width:400px) {
+            #wrap #section1 ul li  { width:50% }   
+        }
+        @media screen and (min-width:600px) {
+            #wrap #section1 ul li  { width:33.333% }   
+        }
+        @media screen and (min-width:1000px) {
+            #wrap #section1 ul li  { width:25% }   
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <section id="section1">
+        <ul>
+            <li><img src="../img/work-1.jpg" alt=""></li>
+            <li><img src="../img/work-2.jpg" alt=""></li>
+            <li><img src="../img/work-3.jpg" alt=""></li>
+            <li><img src="../img/work-4.jpg" alt=""></li>
+            <li><img src="../img/work-5.jpg" alt=""></li>
+            <li><img src="../img/work-6.jpg" alt=""></li>
+            <li><img src="../img/work-7.jpg" alt=""></li>
+            <li><img src="../img/work-8.jpg" alt=""></li>
+        </ul>
+    </section>    
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>FLEX</title>
+    <style>
+        * {margin:0;padding:0;vertical-align:middle;border:0;}
+        body{font:normal 14px/1 'arial';color:#444;}
+        h1,h2,h3,h4,h5,h6 {font-weight:normal;font-size:14px;}
+        ul,li {list-style-type:none;}
+        .flex-container {display:flex;flex-flow:row nowrap;width:80%;margin:50pxauto;flex:1 1 auto;}
+        .flex-container .flex-item {width:100%;}
+        .flex-container .flex-item div{display:flex;justify-content:center;align-items:center;height:100px;margin:5px;}
+        /* 박스 너비 */
+        .flex-container .flex-item:nth-child(1) {width:100%;}
+        .flex-container .flex-item:nth-child(2) {width:50%;}
+        .flex-container .flex-item:nth-child(3) {width:50%;}
+        .flex-container .flex-item:nth-child(4) {width:20%;}
+        .flex-container .flex-item:nth-child(5) {width:20%;}
+        .flex-container .flex-item:nth-child(6) {width:20%;}
+        .flex-container .flex-item:nth-child(7) {width:20%;}
+        .flex-container .flex-item:nth-child(8) {width:20%;}
+        .flex-container .flex-item:nth-child(9) {width:100%;}
+        /* 박스 컬러 */
+        .flex-container .flex-item:nth-child(1) div {background:#99c;}
+        .flex-container .flex-item:nth-child(2) div {background:#9cc;}
+        .flex-container .flex-item:nth-child(3) div {background:#c9c;}
+        .flex-container .flex-item:nth-child(4) div {background:#cc9;}
+        .flex-container .flex-item:nth-child(5) div {background:#cc9;}
+        .flex-container .flex-item:nth-child(6) div {background:#c9c;}
+        .flex-container .flex-item:nth-child(7) div {background:#9cc;}
+        .flex-container .flex-item:nth-child(8) div {background:#99c;}
+        .flex-container .flex-item:nth-child(9) div {background:#99c;}
+        
+    </style>
+</head>
+<body>
+<div id="wrap">
+    
+    <ul class="flex-container">
+        <li class="flex-item"><div>FLEX1</div></li>
+        <li class="flex-item"><div>FLEX2</div></li>
+        <li class="flex-item"><div>FLEX3</div></li>
+        <li class="flex-item"><div>FLEX4</div></li>
+        <li class="flex-item"><div>FLEX5</div></li>
+        <li class="flex-item"><div>FLEX6</div></li>
+        <li class="flex-item"><div>FLEX7</div></li>
+        <li class="flex-item"><div>FLEX8</div></li>
+        <li class="flex-item"><div>FLEX9</div></li>
+    </ul>
+
+</div>
+</body>
+</html>

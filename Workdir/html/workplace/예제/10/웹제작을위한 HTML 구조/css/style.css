@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/* 스킵메뉴 */
+#skip {z-index:2;position:absolute;top:0;left:0;width:100%;}
+#skip li {width:100%;}
+#skip li a {display:block;width:100%;line-height:0;font-size:0;text-align:center;color:#fff;background:#000;}
+#skip li a:focus {line-height:50px;font-size:17px;}
+
+
+/* 웹 문서 전체 랩핑 박스블럭 */
+#wrap {z-index:1;position:relative;width:100%;}
+

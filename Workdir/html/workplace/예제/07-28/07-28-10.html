@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>animation</title>
+    <style>
+        * {margin:0;padding:0;}
+        img {vertical-align:middle;}
+        #skip {z-index:2;position:absolute;top:0;left:0;width:100%;}
+        #skip p {width:100%;}
+        #skip p a {
+            display:block;
+            width:100%;
+            font-size:0;
+            line-height:0;
+            text-align:center;
+            color:#fff;
+            background:#000;
+            text-decoration:none;
+        }
+        #skip p a:focus { /* 키보드 탭키 포커스인 */
+            font-size:20px;
+            line-height:50px;
+        }
+        /* 헤더 메인 푸터 묶음 전체박스 */
+        #wrap {
+            z-index:1;
+            position:relative;
+            width:100%;
+        }
+        /* 헤더영역 z-index:3; */
+        #wrap #header {
+            z-index:3;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:120px;
+            background:#f6f5ef;
+            border-top:2px solid #000;
+            border-bottom:1px solid #e5e5e5;
+        }
+        /* 메인영역 z-index:2; */
+        #wrap #main {
+            z-index:2;
+            position:relative;
+            margin-top:123px;
+        }
+        #wrap #main #section1 {width:100%;height:646px;
+            background:url(../img/starbuck/2020_autumn1_bg.jpg) no-repeat 50% 0;background-size:100% 100%;}
+        #wrap #main #section2 {width:100%;height:62px;}
+        #wrap #main #section3 {display:none;width:100%;height:658px;background:#f6f5ef;}
+        #wrap #main #section4 {width:100%;height:167px;padding:30px 0 40px 0;background:#1e3932;}
+        #wrap #main #section5 {width:100%;height:573px;background:url(../img/starbuck/20_autumn1_bg.jpg) no-repeat 50% 0;background-size:cover;}
+        #wrap #main #section6 {width:100%;height:400px;background:#f4eed9;}
+        #wrap #main #section7 {width:100%;height:800px;background:url(../img/starbuck/fav_prod_bg_new.jpg) no-repeat 50% 0fixed;background-size:cover;}
+        #wrap #main #section8 {width:100%;height:695px;background:#fff;}
+        #wrap #main #section9 {width:100%;height:400px;background:url(../img/starbuck/store_bg.jpg) no-repeat 50% 0;background-size:100% 100%;}
+        /* 푸터영역 z-index:1; */
+        #wrap #footer {
+            z-index:1;
+            position:relative;
+            width:100%;
+            height:488px;
+            padding:32px 0 35px 0;
+            background:#2c2a29;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="skip">
+    <p><a href="#header" title="메뉴바로가기">메뉴바로가기</a></p>
+    <p><a href="#main" title="메인바로가기">메인바로가기</a></p>
+    <p><a href="#footer" title="하단바로가기">하단바로가기</a></p>
+</div>
+
+<div id="wrap">
+    
+    <header id="header">
+
+    </header>
+
+    <main id="main">
+        <section id="section1"></section>
+        <section id="section2"></section>
+        <section id="section3"></section>
+        <section id="section4"></section>
+        <section id="section5"></section>
+        <section id="section6"></section>
+        <section id="section7"></section>
+        <section id="section8"></section>
+        <section id="section9"></section>
+    </main>
+
+    <footer id="footer">
+    
+    </footer>
+</div>
+</body>
+</html>

@@ -40,6 +40,12 @@ public class Main {
 		
 		// 전체 평균 성적 출력
 		System.out.println("\nOverall Average: "+gradeService.getOverallAverage());
+		System.out.println("\nStudents Sorted: ");
+		gradeService.sortStudentsByAverage().forEach(System.out::println);
+		System.out.println("\nStudents Sorted: ");
+		gradeService.sortStudentsByAverage().forEach(std -> System.out.println(gradeService.getStudentAverage(std.getId())));
+		System.out.println("\nStudents Sorted: ");
+		gradeService.sortStudentsByAverage().forEach(std -> System.out.println(gradeService.getStudentMean(std)));
 	}
 
 }

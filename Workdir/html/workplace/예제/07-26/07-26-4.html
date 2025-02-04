@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>animation</title>
+    <style>
+        .box {
+            /* 포지션 사용 애니메이션  */
+            position:relative;
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            margin:50px auto;
+            text-align:center;
+            line-height:200px;
+            background:#c3a;
+            color:#fff;
+            font-size:30px;
+            /* 한 줄 약식 속성 방법 권장사항 */
+            /* animation:ani 3s 갔다가왔다가 무한반복; */
+            animation:ani 3s alternate infinite ease-in-out;
+            /* 속성별로 작성방법 */
+            /*
+            animation-name:ani;
+            animation-duration:3s;
+            animation-direction:alternate;
+            animation-iteration-count:infinite;
+            */
+        }
+        @keyframes ani {
+            0% {left:0;}
+            100% {left:400px;}
+        }
+   </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="box">animation</div>
+</div>
+</body>
+</html>

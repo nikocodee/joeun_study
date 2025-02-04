@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>젠 코딩(Zen Coding)</title>
+</head>
+<body>
+
+    <H1>03-2-1 젠 코딩(Zen Coding) 문법</H1> 
+ 
+    <!-- 코딩 마지막 글자만 지웠다가 다시 쓰고 엔터 하세요 -->
+    <!-- * 반복횟수를 사용합니다.  -->
+    div*5
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+
+    <!-- 아이디(id) 생성은 #입니다.   -->
+    div#wrap
+
+
+
+    <!-- 클래스(class) 생성은 .입니다.  -->
+    div.container
+
+
+
+    <!-- 문자열(string)은 중괄호{}를 사용합니다.  -->
+    div{문자열 입력}
+
+    
+    
+    <!-- 속성(property)은 대괄호[]를 사용합니다.  -->
+    input[type=text name=irum id=irum] 
+
+
+
+
+
+
+
+
+    <H1>03-2-2 젠 코딩(Zen Coding) 문법 예제 테이블</H1>
+    <!-- <h1></h1> 태그 생성 -->
+    h1
+
+
+    <!-- <div></div> 태그 생성 -->
+    div
+
+
+    <!-- <p></p> 태그 생성 -->
+    p
+
+
+
+    <!-- * 반복 3회 생성 -->
+    div*3
+
+    
+
+    <!-- > 자식 요소 생성 -->
+    div>p
+
+
+
+    <!-- div 자식 요소 p를 3회 생성 -->
+    div>p*3
+
+
+
+    <!-- ul 자식 요소 li를 3회 생성 -->
+    ul>li*3
+
+
+
+    <!-- 
+    div 요소에 아이디와 자식 요소 ul 생성
+    ul 자식 요소 li 태그를 3회 생성 
+    -->
+    div#wrap>ul>li*3
+
+
+
+    <!-- 
+    div 요소에 클래스와 자식 요소 ul 생성
+    ul 자식 요소 li 태그를 3회 생성
+     -->
+    div.container>ul>li*3
+
+
+    
+    
+    <!--         
+    ul 자식 요소 li 태그를 5회 생성
+    li 클래스 이름 일련번호($)를 생성 
+    -->
+    ul>li.slide$*5
+
+
+    ul>li*5.slide$
+
+
+    <!--    
+    ul 자식 요소 li 클래스 이름 일련번호 2자리 생성
+    5회 생성 
+    -->
+    ul>li.slide$$*5
+
+
+    ul>li*5.slide$$
+
+
+
+    <!--    
+    ul 자식 요소 li 클래스 이름 일련번호 3자리 생성
+    5회 생성 
+    -->
+    ul>li.slide$$$*5
+
+
+    ul>li*5.slide$$$
+
+
+
+
+    <!-- 
+    div 형제 요소 ul 생성
+    ul 자식 요소 li 3회 생성 
+    -->
+    div+ul>li*3
+
+
+    <!--    
+    div 자식 요소 ul 생성
+    ul 자식 요소 li 3회 생성
+    li 이전 위치에 ul 형제 요소 생성
+    ul 자식요소 li 3회 생성 
+    -->
+    div>ul>li*3^ul>li*3
+
+
+
+
+    <!-- 
+    div 자식 요소 ul 생성
+    ul 자식 요소 li 3회 생성
+    li 이전 위치, 이전 위치에 div 형제 요소 생성
+    div 자식요소 ul 자식요소 li 3회 생성 
+    -->
+    div>ul>li*3^^div>ul>li*3
+
+
+
+
+
+    <!-- 
+    div #wrap 아이디 생성과
+    형제 요소 ul 2개생성
+    ul 자식 요소 li 3회 생성 
+    -->
+    div#wrap>(ul>li*3)+(ul>li*3)
+
+
+
+
+
+
+     <H1>03-2-3 실전 젠 코딩 예문</H1>
+    div.slide-container>div.slide-view>ul.slide-wrap>li.slide.slide$*3
+
+
+
+
+
+
+    <H1>03-2-4 ‘로렘입숨(Lorem ipsum)’ & 그릭킹(greeking)</H1>
+    div>lorem
+
+
+
+
+
+    <H1>03-2-4-1 젠 코딩(Zen Coding)과 실전 ‘로렘입숨(Lorem ipsum)’</H1>
+    ul>li*3>lorem
+
+
+
+
+
+
+</body>
+</html>

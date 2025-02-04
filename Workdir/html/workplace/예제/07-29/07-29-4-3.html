@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>FLEX</title>
+    <style>
+        * {margin:0;padding:0;vertical-align:middle;border:0;}
+        html,body{width:100%;height:100%;}
+        body{font:normal 14px/1 'arial','sans-serif';color:#444;background:#f0f0f0;}
+        h1,h2,h3,h4,h5,h6 {font-weight:normal;font-size:14px;}
+        ul,li {list-style-type:none;}
+        a {text-decoration:none;}
+        #wrap {display:flex;flex-flow:column nowrap;width:100%;height:100%;}
+        #wrap #header {width:100%;height:130px;text-align:center;background:#fff;border-bottom:1pxsolid #ccc;}
+        #wrap #header .wrap {display:flex;width:100%;max-width:1170px;height:100%;margin:0 auto;}
+        #wrap #header .wrap .logo {margin:auto 0;width:200px;}
+        #wrap #header .wrap .logo a{display:block;line-height:40px;background:#599;color:#eee;padding:0 25px;transition:all .3s;}
+        #wrap #header .wrap .logo a:hover {background:#000;color:#eee;}
+        #wrap #header .wrap #nav {margin:auto 0;width:500px;}
+        #wrap #header .wrap #nav ul {display:flex;padding-left:30px;width:100%;}
+        #wrap #header .wrap #nav ul li {flex:1 1 auto;margin:0 5px;}
+        #wrap #header .wrap #nav ul li a{display:block;line-height:40px;background:#955;color:#eee;border-radius:5px;transition:all .3s;}
+        #wrap #header .wrap #nav ul li a:hover {background:#000;color:#eee;}
+        #wrap #header .wrap #aside {margin:auto 0 auto auto;width:270px;}
+        #wrap #header .wrap #aside ul {display:flex;width:100%;}
+        #wrap #header .wrap #aside ul li {flex:1 1 auto;margin:0 5px;}
+        #wrap #header .wrap #aside ul li a{display:block;line-height:40px;background:#7a3;color:#eee;border-radius:5px;transition:all .3s;}
+        #wrap #header .wrap #aside ul li a:hover {background:#000;color:#eee;}
+        #wrap #main {width:100%;}
+        #wrap #main .section {width:100%;height:130px;padding:20px 0;border-bottom:1px solid #ccc;}
+        #wrap #main .section .wrap{width:100%;max-width:1170px;height:100%;background:#fff;margin:0 auto;}
+        #wrap #footer {height:130px;margin-top:auto;;background:#fff;border-top:1px solid #ccc;}
+        #wrap #footer .wrap {display:flex;width:100%;max-width:1170px;height:100%;margin:0 auto;}
+        #wrap #footer .wrap address {margin:auto;font-size:12px;}
+
+        @media all and (max-width:980px){
+            #wrap #header .wrap #aside {display:none;}
+            #wrap #header .wrap #nav {margin:auto 0 auto auto;}
+        }
+        @media all and (max-width:760px){
+            #wrap #header .wrap .logo {margin:auto;}
+            #wrap #header .wrap #nav {display:none;}
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+
+    <header id="header">
+        <div class="wrap">
+            <h1 class="logo">
+                <a href="#" class="logoBtn">LOGO</a>
+            </h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#"class="mainBtn">MENU1</a></li>
+                    <li><a href="#"class="mainBtn">MENU2</a></li>
+                    <li><a href="#"class="mainBtn">MENU3</a></li>
+                    <li><a href="#"class="mainBtn">MENU4</a></li>
+                    <li><a href="#"class="mainBtn">MENU5</a></li>
+                </ul>
+            </nav>
+            <aside id="aside">
+                <ul>
+                    <li><a href="#">SIDE1</a></li>
+                    <li><a href="#">SIDE2</a></li>
+                    <li><a href="#">SIDE3</a></li>
+                </ul>
+            </aside>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="section1" class="section">
+            <div class="wrap">
+                
+            </div>
+        </section>
+        <section id="section2" class="section">
+            <div class="wrap">
+
+            </div>
+        </section>
+        <section id="section3" class="section">
+            <div class="wrap">
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="wrap">
+            <address>© 2014 Sturlly is proudly powered by Thejoeun.</address>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>    

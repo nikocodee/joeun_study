@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>animation</title>
+    <style>
+        #wrap {text-align: center;}
+        label {margin-right:20px;}
+        label,input {display:inline-block;cursor: pointer;transition:al
+        l .6s;}
+        label:hover {color:#3bf;transform:scale(1.05);}
+        /* 인라인 요소는 인라인 블럭요소로 변경하여야 크기변경 효과가 이루어집니다. */
+        .box {
+            /* 트랜스폼(transform) 사용 애니메이션 */
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            margin:50px auto;
+            text-align:center;
+            line-height:200px;
+            background:#c3a;
+            color:#fff;
+            font-size:30px;
+            /* 이름 : 아이디 네이밍과 같음 공백안되고 중복 안되고.. */
+            /* animation:애니메이션이름  애니메이션지속시간(3초동안실행); */
+            /* 한 줄 약식 속성 방법 권장사항 */
+            animation:ani 3s;
+            /* 속성별로 작성방법 */
+            /*
+            animation-name:ani;
+            animation-duration:3s;
+            */
+        }
+        /* @키프레임 애니메이션이름 {} */
+        @keyframes ani {
+        from {transform:translate(0, 0);} /* 시작 */
+        to {transform:translate(400px, 0);} /* 끝 */
+     }   
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="box">animation</div>
+</div>
+</body>
+</html>

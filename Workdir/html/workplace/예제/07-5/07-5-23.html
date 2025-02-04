@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>선택자 스타일 지정</title>
+    <style>
+        div p{
+            font-size:16px;
+            text-align:center;
+        }
+        div p:lang(ko) {
+            color:#09a;
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p lang="en">미국</p>
+        <p lang="uk">영국</p>
+        <p lang="ko">대한민국</p>
+    </div>
+</body>
+</html>

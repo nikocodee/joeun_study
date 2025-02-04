@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>텍스트 방향 writing-mode 가로쓰기와 세로쓰기</title>
+    <style>
+        * {margin:0;padding:0;}
+        body {font-size:15px;color:#333;line-height:170%;background:#e9e9e9;}
+        #wrap {width:100%;}
+        #wrap #textBox {width:100%;max-width:1000px;margin:0 auto;}
+        #wrap #textBox .gap {padding:0 50px;}
+        #wrap #textBox .gap .text-wrap {margin:30px 0;background:#fff;padding:0 30px;}
+        #wrap #textBox .gap .text-wrap  h3 {font-size:20px;text-align:center;padding:10px 0;}
+        #wrap #textBox .gap .text-wrap  p  {width:100%;height:180px;text-align:justify;padding:30px 0;}
+        #wrap #textBox .gap .text-wrap1 p  {writing-mode: vertical-lr;text-align:left;}
+        #wrap #textBox .gap .text-wrap2 p  {writing-mode: vertical-rl;}
+        #wrap #textBox .gap .text-wrap3 p  {writing-mode: horizontal-tb;height:auto;}
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="textBox">
+        <div class="gap">
+               
+            <div class="text-wrap text-wrap1">
+                <h3>세로쓰기 writing-mode: vertical-lr;</h3>  
+                <p>
+                    문화예술 콘텐츠 시장의 급격한 팽창으로 인해 고객의 욕구는 다양해졌으며, 사업자 간 
+                    경쟁은 심화되었다. 그렇기 때문에 문화예술 마케터는 누구에게 어떻게 홍보할 것인지에 
+                    대한 고민을 반드시 해야 한다. 이를 위해 문화예술 시장을 세분화하기 위한 여러 가지 
+                    차원을 파악하고, 이를 바탕으로 가장 적합한 타깃시장을 선정을 할 수 있어야 한다.
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit,
+                    Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+              
+                </p>              
+            </div>
+            <div class="text-wrap text-wrap2">
+                <h3>세로쓰기 writing-mode: vertical-rl;</h3>                 
+                <p>              
+                    문화예술 콘텐츠 시장의 급격한 팽창으로 인해 고객의 욕구는 다양해졌으며, 사업자 간 
+                    경쟁은 심화되었다. 그렇기 때문에 문화예술 마케터는 누구에게 어떻게 홍보할 것인지에 
+                    대한 고민을 반드시 해야 한다. 이를 위해 문화예술 시장을 세분화하기 위한 여러 가지 
+                    차원을 파악하고, 이를 바탕으로 가장 적합한 타깃시장을 선정을 할 수 있어야 한다.
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit,
+                    Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+              
+                </p>
+            </div>
+            <div class="text-wrap text-wrap3">
+                <h3>가로쓰기 writing-mode: horizontal-tb;</h3>                 
+                <p>
+                    Excepteur Sint Occaecat
+                    Cupidatat Non Proident, Sunt In Culpa Qui Officia Deserunt Mollit
+                    Anim Id Est Laborum.
+                    문화예술 콘텐츠 시장의 급격한 팽창으로 인해 고객의 욕구는 다양해졌으며, 사업자 간 
+                    경쟁은 심화되었다. 그렇기 때문에 문화예술 마케터는 누구에게 어떻게 홍보할 것인지에 
+                    대한 고민을 반드시 해야 한다. 이를 위해 문화예술 시장을 세분화하기 위한 여러 가지 
+                    차원을 파악하고, 이를 바탕으로 가장 적합한 타깃시장을 선정을 할 수 있어야 한다.               
+                </p>                
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

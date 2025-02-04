@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.6, user-scalable=no'>      
+    <title>RESPONSIVE</title>
+<style>
+    
+    * {margin:0;padding:0;}
+    #wrap {width:95%;max-width:1000px;margin:0 auto;}
+    #wrap #section1,
+    #wrap #section2 {width:100%;padding:50px 0;}
+    #wrap #section1 div,
+    #wrap #section2 div {
+        column-count:4;    /* 4칸 분할 */
+        column-gap: 40px;  /* 칸 여백 */
+        column-rule:1px solid #ccc; /* 구분선 */
+        width:auto;
+        padding:30px;
+        text-align:left;
+        line-height:150%;
+        font-size:14px;color:#444;
+        border:1px solid #ccc;
+    }    
+    #wrap #section1 div h2, 
+    #wrap #section2 div h2 {
+         column-span:all;  /*  칸합치기 */
+         text-align:center;
+         padding:30px 0;
+         color:#222;
+         font-size:25px;
+         font-weight:500;
+         text-transform:uppercase;
+         letter-spacing:1px;
+    }
+    #wrap #section1 div img {float:left;padding:0 20px 5px 0;width:200px;transition:all 0.5s;}
+    #wrap #section2 div img {float:right;padding:0 0 5px 20px;width:200px;transition:all 0.5s;}
+    @media all and (max-width:1000px){
+        #wrap #section1 div,
+        #wrap #section2 div {
+            column-count:2;  /* 4칸 분할 */
+            column-gap: 40;  /* 칸 여백 */
+            column-rule:1px solid #ccc; /* 구분선 */
+            text-align:justify;            
+            line-height:180%;                        
+        }    
+
+        #wrap #section1,
+        #wrap #section2 {padding:20px 0;}
+        #wrap #section1 div img {float:none;width:100%;padding:0 0 10px 0;}
+        #wrap #section2 div img {float:none;width:100%;padding:0 0 10px 0;} 
+    }
+    @media all and (max-width:600px){
+        #wrap #section1 div,
+        #wrap #section2 div {
+            column-count:1;
+            column-gap: 0;  /* 칸 여백 */
+            column-rule:0px solid #ccc; /* 구분선 */
+        }    
+        #wrap #section1 div h2, 
+        #wrap #section2 div h2 {
+            font-size:20px;
+        }
+
+        #wrap #section1,
+        #wrap #section2 {padding:20px 0;}
+        #wrap #section1 div img {float:none;width:100%;padding:0 0 10px 0;}
+        #wrap #section2 div img {float:none;width:100%;padding:0 0 10px 0;} 
+    }
+
+</style>
+</head>
+<body>
+<div id="wrap">
+    <section id="section1">
+        <div>
+            <h2>Frontend Webpublisher Webdesigner</h2>
+            <img src="../img/ban1.gif">              
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, 
+            Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. 
+            Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco 
+            Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.             
+            Duis Aute Irure Dolor In Reprehenderit In Voluptate 
+            Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. 
+            Excepteur Sint Occaecat Cupidatat Non Proident, 
+            Sunt In Culpa Qui Officia Deserunt Mollit Anim Id Est Laborum. 
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, 
+            Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. 
+            Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco 
+            Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.             
+            Duis Aute Irure Dolor In Reprehenderit In Voluptate 
+            Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. 
+            Excepteur Sint Occaecat Cupidatat Non Proident, 
+            Sunt In Culpa Qui Officia Deserunt Mollit Anim Id Est Laborum. 
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, 
+            Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. 
+            Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco 
+            Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.             
+            Duis Aute Irure Dolor In Reprehenderit In Voluptate 
+            Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. 
+            Excepteur Sint Occaecat Cupidatat Non Proident, 
+            Sunt In Culpa Qui Officia Deserunt Mollit Anim Id Est Laborum. 
+        </div>          
+    </section>
+    <section id="section2">
+        <div>
+            <h2>Frontend Webpublisher Webdesigner</h2>            
+            <img src="../img/ban2.gif">              
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, 
+            Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. 
+            Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco 
+            Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.             
+            Duis Aute Irure Dolor In Reprehenderit In Voluptate 
+            Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. 
+            Excepteur Sint Occaecat Cupidatat Non Proident, 
+            Sunt In Culpa Qui Officia Deserunt Mollit Anim Id Est Laborum. 
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, 
+            Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. 
+            Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco 
+            Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.             
+            Duis Aute Irure Dolor In Reprehenderit In Voluptate 
+            Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. 
+            Excepteur Sint Occaecat Cupidatat Non Proident, 
+            Sunt In Culpa Qui Officia Deserunt Mollit Anim Id Est Laborum. 
+            <h2>Frontend Webpublisher Webdesigner</h2>
+            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, 
+            Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. 
+            Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco 
+            Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.             
+            Duis Aute Irure Dolor In Reprehenderit In Voluptate 
+            Velit Esse Cillum Dolore Eu Fugiat Nulla Pariatur. 
+            Excepteur Sint Occaecat Cupidatat Non Proident, 
+            Sunt In Culpa Qui Officia Deserunt Mollit Anim Id Est Laborum. 
+        </div>          
+    </section>
+</div>
+</body>
+</html>

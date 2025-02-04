@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 스타일</title>
+    <style>
+        [target] {
+            background:#00c;
+            color:#fff;
+        }
+        [target=_blank] {
+            background:#c00;
+            color:#fff;
+        }  
+        [title~="웹(Web)"] {
+            background:#000;
+            color:#fff;
+        }
+        [lang|=en] {
+            background:#cc3;
+            text-decoration:underline;
+        }
+        a[href^="https"] {
+            background:#00c;
+            color:#fff;
+        }
+        a[href$="com"] {
+            background:#0c0;
+            color:#fff;
+            text-decoration:overline;
+        } 
+        a[href*="tjoeun"] {
+            background:#0cc;
+            color:#000;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+
+    <p>프론트앤드는 많은 앞단에 이루어지는 <a href="#"><i>웹 사이트</i></a>를 처리 한다.</p>
+    <p><a href="#" target="_self" title="웹 기획">웹 기획</a></p>
+    <p><a href="#" target="_blank" title="웹 스토리보드">웹 스토리보드</a></p>
+    <p><a href="#" title="웹 스토리 텔링">웹 스토리 텔링</a></p>
+    <div>
+        <h1 class="section1" title="선택자 스타일 지정">선택자 스타일 지정</h1>
+        <p class="text-web" title="웹 디자이너">웹 디자이너</p>
+    </div>
+    <p><a href="#" target="_self" title="웹(Web) 기획">웹 기획</a></p>
+    <p><a href="#" target="_blank" title="웹개발자 스토리보드">웹 스토리보드</a></p>
+    <p><a href="#" title="웹(Web) 스토리 텔링">웹 스토리 텔링</a></p>
+
+    <p><a href="https://www.naver.com" title="웹(Web) 기획">웹 기획</a></p>
+    <p><a href="https://www.tjoeun.co.kr" title="웹(Web) 스토리보드">웹 스토리보드</a></p>
+    <p><a href="http://www.tjoeun.co.kr" title="웹(Web) 스토리 텔링">웹 스토리 텔링</a></p>
+    
+</div>
+</body>
+</html>
+

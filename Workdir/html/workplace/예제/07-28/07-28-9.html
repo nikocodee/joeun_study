@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>animation</title>
+    <style>
+        * {margin:0;padding:0;}
+        img {vertical-align:middle;}
+        #skip {z-index:2;position:absolute;top:0;left:0;width:100%;}
+        #skip p {width:100%;}
+        #skip p a {
+            display:block;
+            width:100%;
+            font-size:0;
+            line-height:0;
+            text-align:center;
+            color:#fff;
+            background:#000;
+            text-decoration:none;
+        }
+        #skip p a:focus { /* 키보드 탭키 포커스인 */
+            font-size:20px;
+            line-height:50px;
+        }
+        #wrap {z-index:1;position:relative;width:100%;}
+    </style>
+</head>
+<body>
+
+<div id="skip">
+    <p><a href="#header" title="메뉴바로가기">메뉴바로가기</a></p>
+    <p><a href="#main" title="메인바로가기">메인바로가기</a></p>
+    <p><a href="#footer" title="하단바로가기">하단바로가기</a></p>
+</div>
+
+<div id="wrap">
+
+</div>
+</body>
+</html>

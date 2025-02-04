@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM 이름 전화번호 성별 좋아 하는 것 라디오 버튼 체크박스</title>
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+    
+    <h2>FORM 이름 전화번호 성별 좋아 하는 것 라디오 버튼 체크박스</h2>
+    <form name='phone_form3' id='phone_form3' method='post' action="/phone.php">
+        <label for="fname2">이름:</label><br>
+        <input type="text" id="fname2" name='fname2' value='' placeholder='이름을 입력하세요'><br>
+        <label for="fphone2">전화:</label><br>
+        <input type="text" id="fphone2" name='fphone2' value='' placeholder='전화번호를 입력하세요'><br>                   
+    
+        <h3>성별은?</h3>
+        <input type="radio" id="male" name="gender" value="male">                    
+        <label for="male">남성</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">여성</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+    
+        <h3>좋아 하는 것은></h3>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> 오토바이 </label>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> 자동차</label>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> 배</label>
+    </form>
+    
+</body>
+</html>

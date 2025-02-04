@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 스타일 지정</title>
+    <style> 
+        input[type="text"] {
+            width:60%;
+            height:20px;
+            border:1px solid #ccc;
+            background:#fff;
+            padding:10px;
+            color:#444;
+            font-size:14px;
+        }
+        input[type="text"]::placeholder {/* ::반드시 콜론 2개 사용 합니다. */
+            color:#aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="fid">*아이디(ID)</label><br>
+        <input type="text" name="fid" id="fid" placeholder="ID는 2자 ~ 10자 이내!">
+    </form>
+
+</body>
+</html>

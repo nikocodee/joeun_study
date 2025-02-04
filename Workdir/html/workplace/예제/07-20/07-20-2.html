@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>텍스트가 영역을 벗어날 때 white-space word-wrap</title>
+ <style>
+ * {margin:0;}
+ body {font-size:15px;color:#555;line-height:160%;background:#f9f9f5;}
+ #wrap {margin:50px auto;width:600px;}
+ #wrap #textBox {background:#fff;}
+ #wrap #textBox .gap {padding:50px;}
+ #wrap #textBox .gap h3 {font-weight:normal;font-size:20px;text-align:center;color:#99c;}
+ #wrap #textBox .gap p {width:100%;line-height:140%;margin-bottom:10px;padding:0 10px;}
+ #wrap #textBox .gap p.text-wrap5 {white-space:pre;}
+ #wrap #textBox .gap p.text-wrap6 {white-space:pre-wrap;}
+ #wrap #textBox .gap p.text-wrap7 {white-space:pre-line;}
+ </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="textBox">
+        <div class="gap">
+            <div id="text-wrap">
+                <h3>white-space:pre;</h3>
+                <p class="text-wrap5">
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit,
+                    Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+                    Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco
+                    Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.
+                </p>
+                <h3>white-space:pre-wrap;</h3>
+                <p class="text-wrap6">
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit,
+                    Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+                    Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco
+                    Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.
+                </p>
+                <h3>white-space:pre-line;</h3>
+                <p class="text-wrap7">
+                    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit,
+                    Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.
+                    Ut Enim Ad Minim Veniam,Quis Nostrud Exercitation Ullamco
+                    Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
