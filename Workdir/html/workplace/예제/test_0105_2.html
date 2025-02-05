@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="test.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <span id="test1">test_0205_2 html 입니다.</span><br>
+    <input type="text" size="7" maxlength="3" />
+    <input type="button" value="button">
+    <img src="#" alt="이미지 없어"><br>
+    <button onclick="javascript:alt(event);">알림창</button>
+    <form action="http://localhost:8080/item/regist" method="post">
+        <input type="checkbox" name="chkitem1" id="my_checkbox" value="c1"> item1
+        <input type="checkbox" name="chkitem2" id="my_checkbox" value="c2"> item2
+        <input type="checkbox" name="chkitem3" id="my_checkbox" value="c3"> item3
+        <input type="radio" name="raditem" id="my_radio" value="l1"> item1
+        <input type="radio" name="raditem" id="my_radio" value="l2"> item2
+        <input type="radio" name="raditem" id="my_radio" value="l3"> item3
+        <input type="password" name="userpass" size="2" maxlength="7">
+        <input type="hidden" name="artifactid" value="A123456">
+        <input type="submit" value="전송">
+    </form>
+    <label for="select_food">취미:</label><br>
+    <select name='select_food2' id='select_food' size='1'>
+      <option value=''>좋아하는 식사는?</option>   
+      <option value='아침'>아침</option>   
+      <option value='브런치'>브런치</option>   
+      <option value='점심'>점심</option>   
+      <option value='저녁'>저녁</option>   
+      <option value='야식' selected>야식</option>   
+    </select>
+    <textarea name="testarea" id="testarea" rows="5" cols="10"><pre>입력값
+        1234
+        5678
+        </pre>
+    </textarea>
+</body>
+</html>
