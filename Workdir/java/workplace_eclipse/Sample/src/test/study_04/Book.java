@@ -3,11 +3,18 @@ package test.study_04;
 import java.util.List;
 
 public class Book {
-	private String title;
-	private String author;
-	private List<String> genres;
-	private boolean isAvailable;
+	private String title; //도서 제목
+	private String author; //저자
+	private List<String> genres; //장르
+	private boolean isAvailable; //대출 가능 여부
 
+
+	public Book(String title, String author, List<String> genres) {
+		this.title = title;
+		this.author = author;
+		this.genres = genres;
+		this.isAvailable = true; // 기본적으로 대출 가능 상태
+	}
 
 	public String getTitle() {
 		return title;
@@ -25,26 +32,18 @@ public class Book {
 		return isAvailable;
 	}
 
-	public Book(String title, String author, List<String> genres, boolean isAvailable) {
-		this.title = title;
-		this.author = author;
-		this.genres = genres;
-		this.isAvailable = true;
+	
+	public void borrowBook() {
+		isAvailable = false;
 	}
 	
-	public boolean borrowBook() {
-		isAvailable = !isAvailable;
-		return isAvailable;
+	public void returnBook() {
+		isAvailable = true;
 	}
 	
-	public boolean returnBook() {
-		isAvailable = !isAvailable;
-		return isAvailable;
-	}
-	
-	public void updateBook() {
-		isAvailable = !isAvailable;
-	}
+//	public void updateBook() {
+//		isAvailable = !isAvailable;
+//	}
 	
 	@Override
 	public String toString() {
