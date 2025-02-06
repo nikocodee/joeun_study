@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advanced HTML Form</h1>
+    <form action="/submit-form" method="POST">
+        <!-- 라디오 버튼 -->
+        <div class="form-group">
+            <label>Choose your gender:</label>
+            <div class="form-group-inline">
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+        </div>
+
+        <!-- 체크박스 -->
+        <div class="form-group">
+            <label>Choose your hobbies:</label>
+            <label><input type="checkbox" name="hobbies" value="reading"> Reading</label>
+            <label><input type="checkbox" name="hobbies" value="sports"> Sports</label>
+            <label><input type="checkbox" name="hobbies" value="traveling"> Traveling</label>
+        </div>
+
+        <!-- 선택 메뉴 -->
+        <div class="form-group">
+            <label for="country">Select your country:</label>
+            <select id="country" name="country" required>
+                <option value="">-- Choose Country --</option>
+                <option value="usa">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="canada">Canada</option>
+                <option value="australia">Australia</option>
+            </select>
+        </div>
+
+        <!-- HTML5 입력 유형 -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" max="100" placeholder="Enter your age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Favorite Color:</label>
+            <input type="color" id="color" name="color">
+        </div>
+
+        <div class="form-group">
+            <label for="satisfaction">Rate our service (1-10):</label>
+            <input type="range" id="satisfaction" name="satisfaction" min="1" max="10">
+        </div>
+
+        <!-- 제출 버튼 -->
+        <!-- javascript:return false;는 작동 안하게 함 -->
+        <button type="submit" onclick="javascript:return false;">Submit</button>
+    </form>
+</body>
+</html>
