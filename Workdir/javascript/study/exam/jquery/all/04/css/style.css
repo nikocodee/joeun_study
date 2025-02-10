@@ -1,0 +1,13 @@
+
+*{margin:0; padding:0;}
+#wrap{width:800px;margin:0 auto;}
+#all{width:555px; height:119px; position:relative;margin:0 auto;}
+#all p{position:absolute; top:50px;}
+#prev{left:-12px;}
+#next{right:-12px;}
+ul, li{list-style:none;}
+#bigImage{width:800px; margin:0 auto;}
+#show_view{width:555px; height:119px;overflow:hidden; }/*overflow:hidden;*/
+ul{width: 950px; }
+li{float:left; padding:5px; background:#000;}
+/*img:179px;*/

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ajax</title>
+<style>
+div{width:800px; margin:20px 0 auto;
+}
+#main {
+padding: 5pt;
+border: 2px dashed #666;
+}
+</style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <h1>jQuery AJAX 사용하기</h1>
+    <p id="main"></p>
+</div>  
+
+<script type="text/javascript">
+
+$("document").ready(function() {
+    getJSONData();
+});
+
+function getJSONData() {
+    $.getJSON( "testdata.json", function( data ) {
+        var items = [];
+        $.each(data,function(key,val){
+            items.push('<p>'+key + ","+val+'</p>');
+            //$('#main').append(items);
+        });
+        console.log(items);
+        $('#main').append(items[0]);
+      
+     });
+}
+
+</script>
+
+</body>
+</html>

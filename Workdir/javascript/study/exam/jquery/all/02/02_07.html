@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dom</title>
+<style>
+section{width:800px; margin:20px auto; padding:20px;}
+p#first{width:750px; padding:20px; border:3px solid #333;  background:yellow;}
+ins,strong{color:red;  display:block;}
+p.last{text-align:right;}
+</style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+
+<section>
+<button id="btn01">버튼</button>
+<p id="first">
+본문의 내용입니다.
+</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+<script>
+$(function(){
+$('#btn01').click(function(e){
+$('p').prepend('<ins>추가된내용</ins>')
+.append('<strong>참조바람</strong>')
+.before('<h1>제목1</h1>')
+.after('<p class="last">end</p>');
+});
+});
+</script>
+</body>
+
+</html>

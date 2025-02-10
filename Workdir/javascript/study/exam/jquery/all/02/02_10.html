@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dom</title>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<button id="btn01">replace</button>
+<button id="btn02">html</button>
+<button id="btn03">remove</button>
+<button id="btn04">empty</button>
+<button id="btn05">clone</button>
+<button id="btn06">detach</button>
+<p class="no01">요소바꾸기바꾸어 주세요. </p>
+<p class="no02">콘텐츠바꾸기바꾸어 주세요. </p>
+<p class="no03">없애기</p>
+<p class="no04">비우기 </p>
+<p class="no05">채우기 </p>
+<p class="no06">복제하기</p>
+<p class="no07">자르기</p>
+<script>
+$(function(){
+  //replace
+  $('#btn01').click(function(e){
+$('p.no01').replaceWith('<h1>제목</h1>');
+  });
+  $('#btn02').click(function(e){
+$('p.no02').html('<h1>제목2</h1>')
+  });
+  $('#btn03').click(function(e){
+  $('p.no03').remove();
+  });
+  $('#btn04').click(function(e){
+$('p.no04').empty();
+  });
+  $('#btn05').click(function(){
+var num01 = $('p.no06').clone();
+$('p.no05').prepend(num01);
+//console.log(num01);
+  });
+  $('#btn06').click(function(){
+var num02 = $('p.no06').detach();
+//console.log(num02);
+$('p.no07').prepend(num02);
+  });
+
+});
+</script>
+</body>
+
+</html>

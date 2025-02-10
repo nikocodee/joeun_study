@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>val</title>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<p> <input type="text" name="user"></p>
+<button>Set the value of the input field</button>
+<script>
+    $(function(){
+    $('button').on('click',function(e){
+      $('input').val('welcome');
+      //value  속성: 초기 셋팅값
+    });
+    
+    });
+    </script>    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>gallery</title>
+<link href="css1/reset.css" rel="stylesheet">
+<link href="css/gallery.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+
+  <section>
+    <h1>Slide Gallery</h1>
+            <p id="prev"><img src="img/prev.png" alt="앞으로"></p>
+            <p id="next"><img src="img/next.png" alt="뒤로"></p>
+    <div id="view">
+            <ul id="source">
+            <li><img src="img/pic01.jpg" alt="화보1"></li>
+            <li><img src="img/pic02.jpg" alt="화보3"></li>
+            <li><img src="img/pic03.jpg" alt="화보4"></li>
+            <li><img src="img/pic04.jpg" alt="화보5"></li>
+            <li><img src="img/pic05.jpg" alt="화보6"></li>
+            </ul>
+    </div>
+    </section>
+    
+
+
+    <script>
+    //준비하기
+    $(function(){
+    $('#source>li:last').prependTo('#source');
+    $('#source').css('margin-left','-400px');
+    //버튼작동
+    btn();
+    //움직이기
+    aniGallery();
+    // 타이머
+    setInterval(aniGallery,3000);
+    });
+
+ function btn(){
+  //버튼 작동
+    $('#next').on('click',function(e){
+      $('#next,#prev').hide();
+      $('#source').animate({marginLeft:'-=400px'},300,'swing',function(){
+        $('#source>li:first').appendTo('#source');
+        $('#source').css('margin-left','-400px');
+        $('#next,#prev').show();
+      });
+    });
+    $('#prev').on('click',function(e){
+      $('#next,#prev').hide();
+      $('#source').animate({marginLeft:'+=400px'},300,'swing',function(){
+        $('#source>li:last').prependTo('#source');
+        $('#source').css('margin-left','-400px');
+        $('#next,#prev').show();
+      });
+    });
+}
+
+//타이머 소스
+function aniGallery(){
+  $('#next,#prev').hide();
+  $('#source').animate({marginLeft:'-=400px'},300,'swing',function(){
+    $('#source>li:first').appendTo('#source');
+    $('#source').css('margin-left','-400px');
+    $('#next,#prev').show();
+  });
+}
+    </script>
+</body>
+</html>

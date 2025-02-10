@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>이벤트</title>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <ul id="btn">
+        <li><a id="btn01" href="img/house_01.jpg">주택1</a></li>
+        <li><a id="btn02" href="img/house_02.jpg">주택2</a></li>
+        <li><a id="btn03" href="img/house_03.jpg">주택3</a></li>
+        <li><a id="btn04" href="img/house_04.jpg">주택4</a></li>
+        </ul>
+        <p><img id="back_img" src="img/house_05.jpg" alt="주택5" /></p>
+        <script>
+        $(function(){
+        $('li>a').click(function(e){
+          var pic = $(this).attr('href');
+          console.log(pic);
+          //내가 클릭한 a의 href의 값
+          $('p>img').attr('src',pic);
+          //$('p>img').attr('src','img/house_01.jpg');
+          return false;
+        });
+        
+        });
+        </script>
+</body>
+</html>

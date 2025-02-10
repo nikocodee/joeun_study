@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 시작하기</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<button type="button">sample</button>
+<div> </div>
+<p></p>   
+<script>
+$(function(){
+   $('div').text('jquery시작');
+
+   $('button').click(function(e){
+    $('p').text('welcome').css('color','red');
+});
+});
+</script>
+</body>
+</html>

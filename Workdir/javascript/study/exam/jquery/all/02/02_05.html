@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dom</title>
+<style type="text/css">
+    .backLink {
+    width: 100px;
+    height:50px;
+    background-color : #FF00FF;
+    }
+    </style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+    <button id="btn01">클래스 넣기</button>
+    <button id="btn02">클래스 지우기</button>
+    <p><a href="http://www.naver.com">링크</a></p>
+
+
+
+
+
+    
+    <script>
+    $(function(){
+      $('#btn01').click(function(e){
+          $('p').addClass('backLink');
+      });
+      $('#btn02').click(function(e){
+        $('p').removeClass('backLink');
+      });
+    
+    });
+    
+    </script>
+</body>
+
+</html>

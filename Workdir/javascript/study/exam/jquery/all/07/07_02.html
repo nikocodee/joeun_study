@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>val</title>
+<script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+
+<input type="text" value="some text">
+<p></p>
+<script>
+    $(function(){
+      $('input').on('keyup',function(e){
+        var stl = $(this).val();
+        console.log(stl);
+        $('p').text(stl);
+      });
+    
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ajax</title>
+<style>
+div{width:800px; margin:20px 0 auto;
+}
+#main {
+padding: 5pt;
+border: 2px dashed #666;
+}
+</style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <h1>jQuery AJAX 사용하기</h1>
+    <p id="main"></p>
+</div>  
+
+<script type="text/javascript">
+
+$("document").ready(function() {
+            getXMLData();
+    });
+
+function getXMLData() {
+    $.get('testxmldata.xml',function(result){
+        var title = result.getElementsByTagName('title')[0];
+        var name = result.getElementsByTagName('name')[0];
+        var val = title.firstChild.nodeValue+" by "+name.firstChild.nodeValue;
+        $('#main').append(val);
+    })
+}
+
+function successFn(result) {
+    $("#main").append(result);
+}
+
+function errorFn(xhr, status, strErr) {
+console.log('전송되지 못했습니다.');
+}
+
+</script>
+</body>
+</html>

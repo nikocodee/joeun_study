@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>val</title>
+<script src="js/jquery.min.js"></script>
+<style>
+  span {
+    display: none;
+  }
+  </style>
+</head>
+
+<body>
+<p><input type="text"> <span>focus fire</span></p>
+<p><input type="password"> <span>focus fire</span></p>    
+<script>
+  $(function(){
+  $('input').on('focus',function(e){
+    //$(this).next('span').show();
+    $(this).next('span')
+          .css('display','inline')
+          .delay(800)
+          .fadeOut(1000);
+  });
+  });  
+  </script>
+</body>
+</html>

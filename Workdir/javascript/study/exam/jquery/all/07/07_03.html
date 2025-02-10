@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>val</title>
+<script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+<p><input type="text" value="click a button"></p>
+<script>
+  $(function(){
+    //$().change();
+    $('input').on('change',function(e){
+      $('body').append('<span>값이 변경되었습니다</span>');
+    });
+  });
+  
+  </script> 
+</body>
+</html>

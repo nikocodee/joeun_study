@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>이펙트</title>
+<style type="text/css">
+section {
+width: 500px;
+margin: 20px auto;}
+
+div {
+width: 250px;
+float: left;}
+
+p {
+margin: 20px auto;
+text-align: center;}
+
+p.back {
+width: 150px;
+height: 150px;
+background: red;
+display: none;}
+</style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div id="box01">
+    <p><button class="btn01">콜백함수 사용 안함</button></p>
+    <p class="back back01"></p>
+</div>
+<div id="box02">
+    <p><button class="btn02">콜백함수 사용</button></p>
+    <p class="back back02"></p>
+</div>
+<script>
+    $(function(){
+    $('button.btn01').on('click',function(e){
+      $('.back01').slideDown(500);
+      $('.back01').css('background','yellow');
+    });
+    $('button.btn02').on('click',function(e){
+      $('.back02').slideDown(500,function(){
+          $(this).css('background','yellow');
+      });
+    });
+    });
+    </script>
+</body>
+
+</html>

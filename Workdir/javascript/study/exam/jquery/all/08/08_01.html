@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ajax</title>
+<style>
+div{width:800px; margin:20px 0 auto;
+}
+#main {
+padding: 5pt;
+border: 2px dashed #666;
+}
+</style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <h1>jQuery AJAX 사용하기</h1>
+    <p id="main"></p>
+</div>  
+
+<script type="text/javascript">
+
+$(function(){
+    getData();
+});
+
+function getData() {
+$.ajax({
+    url: "testdata.txt",
+    type: "GET",
+    dataType : "text",
+    success: successFn,
+    error: errorFn,
+    complete: function( xhr, status ) {
+        console.log("전송이 성공 되었습니다");
+        }
+    });
+}
+
+function successFn(result) {
+    console.log("전송됩니다.");
+    $("#main").append(result);
+}
+
+function errorFn(xhr, status, strErr) {
+console.log('전송되지 못했습니다.');
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>이벤트</title>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+        <ul id="list_btn">
+        <li><a href="img/room_01.jpg">room01</a></li>
+        <li><a href="img/room_02.jpg">room02</a></li>
+        <li><a href="img/room_03.jpg">room03</a></li>
+        <li><a href="img/room_04.jpg">room04</a></li>
+        </ul>
+        <p id="back_pic"><img src="img/room_05.jpg" alt="room05" /></p>
+        <script>
+        $(function(){
+        $('ul>li>a').dblclick(function(e){
+                      var pic = $(this).attr('href');
+                      $('p>img').attr('src',pic);
+                    }).click(function(e){
+                      return false;
+                    });
+        });
+    //$(선택자).dblclick().click();
+    //$(선택자).mousedown().click();
+    //$(선택자).mouseup().click();
+        </script>
+        
+</body>
+</html>

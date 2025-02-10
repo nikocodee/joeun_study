@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<h3>제목2</h3>
+<header>제목3</header>
+<button id="btn" type="button">클릭</button>
+<ol>
+<li>첫번째 내용 </li>
+<li>두번째 <span>text</span>내용  </li>
+<li>세번째 내용  </li>
+<li></li>
+<li>네번째 내용<strong>text</strong>내용  </li>
+<li>다섯번째 <span>text</span>내용<span>text</span>내용</li>
+<li>여섯번째 내용</li>
+</ol>
+<script>
+  $(function(){
+  $('#btn').click(function(e){
+    $('li:has(span)').css('border','3px solid red');
+    $('span:only-child').css('background-color','skyblue');
+    $('li:contains("세번")').css('border','3px solid #111');
+    $('li:empty').text('jQury');
+    $(':header').css('background-color','pink');
+    $('li:not(:first-child)').css('background-color','yellow');
+  });
+  });
+  </script>
+</body>
+</html>

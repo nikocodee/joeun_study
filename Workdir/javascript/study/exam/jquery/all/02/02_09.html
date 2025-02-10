@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>dom</title>
+
+  <style>
+  p{
+    width:500px; 
+    padding:10px; 
+    margin:20px; 
+    border:3px solid #36F;
+  }
+  </style>
+
+<script src="js/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<p>
+<button id="btn01">버튼</button>
+<button id="btn02">all</button>
+<button id="btn03">inner</button>
+<button id="btn04">remove</button>
+</p>
+<div>
+<strong> 텍스트텍스트</strong>
+<strong> 텍스트텍스트</strong>
+<em>나만 틀려요</em>
+<strong> 텍스트텍스트</strong>
+</div>
+<script>
+$(function(){
+  //wrap
+  $('#btn01').click(function(e){
+$('strong').wrap('<p>');
+  });
+  //wrapAll
+  $('#btn02').click(function(e){
+$('strong').wrapAll('<p>');
+  });
+
+  $('#btn03').click(function(e){
+$('div').wrapInner('<p>');
+  });
+
+  $('#btn04').click(function(e){
+$('strong').unwrap();
+  });
+});
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ajax</title>
+<style>
+div{width:800px; margin:20px 0 auto;
+}
+#main {
+padding: 5pt;
+border: 2px dashed #666;
+}
+</style>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <h1>jQuery AJAX 사용하기</h1>
+    <p id="main"></p>
+</div>  
+
+<script type="text/javascript">
+
+$("document").ready(function() {
+            $(document).ajaxStart(function () {
+                console.log("AJAX 시작");
+            });
+
+            $(document).ajaxStop(function () {
+                console.log("AJAX 끝");
+            });
+
+            $(document).ajaxSend(function (evt, jqXHR, options) {
+                console.log("데이터 전송중");
+            });
+
+            $(document).ajaxComplete(function (evt, jqXHR, options) {
+                console.log("AJAX 완료");
+            });
+
+            $(document).ajaxError(function (evt, jqXHR, settings, err) {
+                console.log("전송에 문제가 있습니다. " + err);
+            });
+
+            $(document).ajaxSuccess(function (evt, jqXHR, options) {
+                console.log("작전이 성공 했습니다.");
+            });
+
+            getData();
+        });
+      
+        function getData() {
+            $.get("testdata.txt", successFn);
+        }
+        
+        function successFn(result) {
+            console.log("Setting result");
+            $("#main").append(result);
+        }
+        function errorFn(xhr, status, strErr) {
+            alert(strErr);
+        }
+    </script>
+
+</script>
+</body>
+</html>

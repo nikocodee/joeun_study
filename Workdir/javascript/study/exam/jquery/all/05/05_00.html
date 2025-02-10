@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>이펙트</title>
+  <style>
+p {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  width: 800px;
+  height: 70px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+}
+
+p:first-child {
+  width: 300px;
+  height: 70px;
+  float: left;
+  background: #333;
+  text-align: center;
+  line-height: 70px;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+p:last-child {
+  width: 480px;
+  height: 66px;
+  background: #099;
+  float: right;
+}
+  </style>
+  <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="effect01">
+<p class="button">
+<button class="btn01">show</button>
+<button class="btn02">hide</button>
+<button class="btn03">toggel</button>
+</p>
+<p class="back01"></p>
+</div>
+
+<div id="effect02">
+<p class="button">
+<button class="btn01">slideDown</button>
+<button class="btn02">slideUp</button>
+<button class="btn03">slideToggel</button>
+</p>
+<p class="back02"></p>
+</div>
+
+<div id="effect03">
+<p class="button">
+<button class="btn01">fadeIn</button>
+<button class="btn02">fadeOut</button>
+</p>
+<p class="back03"></p>
+</div>
+
+<div id="effect04">
+<p class="button">
+<button class="btn01">fadeTo</button>
+<button class="btn02">fadeToggel</button>
+</p>
+<p class="back04"></p>
+</div>
+<!-- script -->
+<script>
+  $(function(){
+  $('div#effect01 button.btn02').on('click',function(){
+    $('p.back01').hide(500);
+  });
+  $('div#effect01 button.btn01').on('click',function(){
+    $('p.back01').show(500);
+  });
+  $('div#effect01 button.btn03').on('click',function(){
+    $('p.back01').toggle(500);
+  });
+  //slide
+  $('div#effect02 button.btn01').on('click',function(){
+    $('p.back02').slideDown(500);
+  });
+  $('div#effect02 button.btn02').on('click',function(){
+    $('p.back02').slideUp(500);
+  });
+  $('div#effect02 button.btn03').on('click',function(){
+    $('p.back02').slideToggle(500);
+  });
+  //fade
+  $('div#effect03 button.btn01').on('click',function(){
+    $('p.back03').fadeIn(500);
+  });
+  
+  $('div#effect03 button.btn02').on('click',function(){
+    $('p.back03').fadeOut(500);
+  });
+  //fadeTo
+  $('div#effect04 button.btn01').on('click',function(){
+    $('p.back04').fadeTo(500, 0.4);
+  });
+  
+  $('div#effect04 button.btn02').on('click',function(){
+    $('p.back04').fadeToggle(500);
+  });
+  });
+  </script>
+</body>
+</html>
