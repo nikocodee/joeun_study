@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Date 객체</title>
-</head>
-<body>
-<script>
-var Today = new Date('2020/5/02');
-console.log(Today);
-var Day = new Date(2020,4,02);
-console.log(Day);
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 객체</title>
+  </head>
+  <body>
+    <script>
+      var Today = new Date("2025/02/11");
+      console.log(Today.toLocaleDateString());
+      var Day = new Date(2025, 2, 11);
+      console.log(Day.toLocaleString());
+      var Now = new Date(2025, 2, 11);
+      //   var Now = new Date();
+      console.log(Now.toLocaleTimeString());
+      console.log("------------------------------");
+      console.log(Now.toString());
+      console.log(Now.toDateString());
+      console.log(Now.toTimeString());
+      console.log(Now.toUTCString());
+      console.log(Now.toISOString());
+    </script>
+  </body>
 </html>

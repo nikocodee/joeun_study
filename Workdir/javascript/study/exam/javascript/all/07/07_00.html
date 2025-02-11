@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Date 객체</title>
-</head>
-<body>
-<script>
-var Today = new Date();
-console.log(Today);
-console.log(Today.getDay());
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 객체</title>
+  </head>
+  <body>
+    <script>
+      var Today = new Date("2025/02/09"); //일요일
+      console.log(Today);
+      console.log(Today.getDay());
+      var Today2 = new Date("2025/02/10"); //월요일
+      console.log(Today2);
+      console.log(Today2.getDay());
+    </script>
+  </body>
 </html>
