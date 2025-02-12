@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>jquery란</title>
-<script src="js/jquery.min.js"></script>
+  <head>
+    <title>jquery란</title>
+    <script src="js/jquery.min.js"></script>
 
-<script>
+    <script>
+      //javascript
+      window.addEventListener("DOMContentLoaded", function (evt) {
+        const CONTENT = document.getElementById("content");
+        const P = document.createElement("p");
+        var TEXT = document.createTextNode("welcome 자바스크립트");
+        P.appendChild(TEXT);
+        CONTENT.appendChild(P);
+      });
+      //jquery
+      $(document).ready(function () {
+        $("#content2").append("<p>welcome 자바스크립트</p>");
+      });
 
-//javascript
-window.addEventListener("DOMContentLoaded", function(evt) {
-    const CONTENT = document.getElementById("content");
-    const P = document.createElement("p");
-    var TEXT = document.createTextNode("welcome 자바스크립트");
-    P.appendChild(TEXT);
-    CONTENT.appendChild(P);
-});
-//jquery
-$("document").ready(function() {
-$("#content2").append("<p>welcome 자바스크립트</p>");
-});
-</script>
-</head>
+      // //1
+      // jQuery(
+      //   $(document).ready(function () {
+      //     $("#content2").append("<p>jQuery 선언 1</p>");
+      //   })
+      // );
+      // //2
+      // $(
+      //   $(document).ready(function () {
+      //     $("#content2").append("<p>jQuery 선언 2</p>");
+      //   })
+      // );
+      // //3
+      // $("document").ready(function () {
+      //   $("#content2").append("<p>jQuery 선언 3</p>");
+      // });
+      // //4
+      // $(function () {
+      //   $("#content2").append("<p>jQuery 선언 4</p>");
+      // });
+    </script>
+  </head>
 
-<body>
-
-<div id="content">
-<!-- we start with an empty document -->
-</div>
-<div id="content2">
-<!-- we start with an empty document -->
-</div>
-</body>
-
+  <body>
+    <div id="content">
+      <!-- we start with an empty document -->
+    </div>
+    <div id="content2">
+      <!-- we start with an empty document -->
+    </div>
+  </body>
 </html>
