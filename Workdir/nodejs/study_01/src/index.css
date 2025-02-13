@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+#root {
+  margin: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+.loopy {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 40px;
+}
+p {
+  font-size: 15px;
+  line-height: 1.5;
+}
