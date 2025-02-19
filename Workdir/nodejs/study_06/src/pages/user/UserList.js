@@ -52,7 +52,11 @@ function UserList() {
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>
-                <Link to={`/user/${user.id}/${user.name}`}>{user.name}</Link>
+                <Link
+                  to={`/user/${user.id}/${user.name}/${user.age}/${user.addr1}/${user.addr2}`}
+                >
+                  {user.name}
+                </Link>
               </td>
               <td>{user.age}</td>
               <select
