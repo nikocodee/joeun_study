@@ -1,9 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import { Link, Route, Routes } from "react-router-dom";
+import HomeRoute from "./routes/HomeRoute";
+import AboutRoute from "./routes/AboutRoute";
+import IntroRoute from "./routes/IntroRoute";
 
 function App() {
   return (
@@ -12,12 +15,13 @@ function App() {
         <Link to={"/"}>Home</Link>
         {" | "}
         <Link to={"/about"}>About</Link>
+        {" | "}
+        <Link to={"/intro"}>Intros</Link>
       </nav>
       <hr />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <HomeRoute />
+      <AboutRoute />
+      <IntroRoute />
     </div>
   );
 

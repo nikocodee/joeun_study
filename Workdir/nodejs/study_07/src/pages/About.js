@@ -10,11 +10,12 @@ const About = () => {
   // const DECREMENT_ACTION = { type: "DECREMENT" };
   return (
     <div>
-      <p>Home Page</p>
+      <p>About Page</p>
 
       <p>Total : {totalNo}</p>
       <p>Count : {countNo}</p>
       <button onClick={() => dispatch(addTotal())}>Inc</button>
+      {/* <button onClick={() => dispatch(addTotal({total:3, count:2}))}>Inc</button> */}
       {" | "}
       <button onClick={() => dispatch(subTotal())}>Dec</button>
     </div>
