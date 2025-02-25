@@ -49,3 +49,21 @@ INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
 SELECT * FROM member;
 SELECT * FROM buy;
 
+SELECT m.mem_id
+	, m.mem_name
+	, (m.mem_number + 10) as 'memAge'
+FROM member m
+WHERE m.mem_id = 'ITZ'
+AND m.memAge = 15
+
+SELECT a.* 
+FROM (
+	SELECT m.mem_id
+		, m.mem_name
+		, (m.mem_number + 10) as 'memAge'
+	FROM member m
+	WHERE m.mem_id = 'ITZ') a
+WHERE a.memAge = 15
+
+
+
