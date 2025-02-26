@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS market_db; -- 만약 market_db가 존재하면 우선 삭제한다.
+mydbDROP DATABASE IF EXISTS market_db; -- 만약 market_db가 존재하면 우선 삭제한다.
 CREATE DATABASE market_db;
 
 USE market_db;
@@ -64,6 +64,90 @@ FROM (
 	FROM member m
 	WHERE m.mem_id = 'ITZ') a
 WHERE a.memAge = 15
+
+SELECT a.* 
+FROM (
+	SELECT m.mem_id
+		, m.mem_name
+		, (m.mem_number + 10) as 'memAge'
+	FROM member m
+	WHERE m.mem_id = 'ITZ'
+	AND (m.mem_number + 10) > 10
+	) a
+WHERE a.memAge = 15
+
+
+SELECT b.price, AVG(amount) 
+FROM buy b
+GROUP BY price;
+
+SELECT *
+	, AVG(price) OVER(PARTITION BY group_name ORDER BY group_name) AS avg
+FROM buy
+
+SELECT * , avg(price) FROM buy
+
+-- 조인
+SELECT *
+FROM member m INNER JOIN buy b
+ON m.mem_id = b.mem_id
+
+SELECT m.mem_id
+FROM member m INNER JOIN buy b
+ON m.mem_id = b.mem_id
+
+SELECT distinct m.mem_id
+FROM member m INNER JOIN buy b
+ON m.mem_id = b.mem_id
+
+
+SELECT m.*, b.*
+from member m LEFT OUTER JOIN buy b ON m.mem_id = b.mem_id
+union
+SELECT m.*, b.*
+from member m RIGHT OUTER JOIN buy b ON m.mem_id = b.mem_id
+
+SELECT m.*, b.*
+from member m CROSS join buy b
+
+SELECT mem_id, mem_name, debut_date
+FROM member
+WHERE mem_number < 8
+ORDER BY mem_id
+
+-- VIEW
+CREATE VIEW v_member
+AS
+SELECT mem_id, mem_name, debut_date
+FROM member
+WHERE mem_number < 8
+
+SELECT * FROM v_member
+
+-- WITH
+WITH t_mem AS (
+SELECT mem_id, mem_name, debut_date
+FROM member
+WHERE mem_number < 7
+)
+v_member
+SELECT t.*, v.* 
+FROM t_mem t RIGHT OUTER JOIN v_member v
+ON t.mem_id = v.mem_id
+
+SELECT address_detail FROM user
+
+
+
+
+
+
+
+CREATE INDEX idx_address_detail ON user(address_detail)
+
+EXPLAIN SELECT * FROM user WHERE address_detail = '시우이마을'
+
+DROP INDEX idx_address_detail ON user
 
 
 
