@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.learn.domain.User;
 import com.learn.service.UserService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 //restcontroller json으로 반환
 @Controller
 public class UserController {
