@@ -29,7 +29,7 @@ public class UserController {
 
     private final Path uploadPath = Path.of(System.getProperty("user.dir"), "uploads");
 
-    // 디렉터리 생성
+    // uploads 디렉터리 생성
     public UserController() throws Exception {
         Files.createDirectories(uploadPath);
     }
@@ -37,7 +37,7 @@ public class UserController {
     // ✅ 1. GET 방식 : Query String 처리
     // URL: http://localhost:8080/user/query?name=John&age=25
     @GetMapping("/query")
-    public String getQueryString(@RequestParam String name, @RequestParam int age) {
+    public String getQueryString(@RequestParam String name, @RequestParam int age) { //쿼리파라미터
         return "QueryString 처리: name=" + name + ", age=" + age;
     }
 
@@ -51,6 +51,7 @@ public class UserController {
     }
 
     // ✅ 3. POST 방식 : HTML <form> 태그 방식
+    // form-data
     @PostMapping("/form")
     public String postForm(UserRequest userRequest) {
         return "Form 방식 : name=" + userRequest.getName() + ", age=" + userRequest.getAge();
