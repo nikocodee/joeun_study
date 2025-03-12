@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: study-9
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/portal?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: rootpw
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # 애플리케이션 실행 시 테이블 자동 생성 (create, update, validate, none 설정 가능)
+    properties:
+      hibernate:
+        format_sql: true  # SQL을 보기 좋게 출력
+        show_sql: true    # 콘솔에서 실행되는 SQL 확인
+        
+  logging:
+    level:
+      org.hibernate.SQL: DEBUG  # 실행된 SQL을 로그로 출력
+      org.hibernate.orm.jdbc.bind: TRACE  # SQL 바인딩된 파라미터를 출력
+      
+  springdoc:
+    api-docs:
+      path: /v3/api-docs # API 문서에 접근하는 경로 설정
+    swagger-ui:
+      path: /swagger-ui.html # Swagger UI에 접근하는 경로 설정
