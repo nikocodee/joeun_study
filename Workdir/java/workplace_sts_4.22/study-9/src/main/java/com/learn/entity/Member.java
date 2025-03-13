@@ -4,18 +4,21 @@ import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 
 @Entity
 public class Member {
 	@Id
+	@GeneratedValue (strategy = GenerationType.UUID)
 	private String id;
 	
-	@PrePersist
-	public void generateId() {
-		this.id = UUID.randomUUID().toString();
-	}
+//	@PrePersist
+//	public void generateId() {
+//		this.id = UUID.randomUUID().toString();
+//	}
 	
 	@Column(nullable = false, length = 20)
 	private String name;

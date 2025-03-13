@@ -1,6 +1,9 @@
 package com.learn.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,43 +25,41 @@ public class MemberController {
 	
 	@GetMapping
 	public List<Member> getAllMembers() {
-		List<Member> result = null;
-//		result = "getAllUsers() 호출";
+		List<Member> result = new ArrayList<>();
 		result = memberService.getAllMembers();
 		return result;
 	}
 	
 	@PostMapping
-	public Member createMember(@RequestBody Member member) {
+	//input태그로 받는게 form-data 형태로 받음 (첨부파일이 있으면 무조건 form-data로 받아야함)
+	//@RequestBody 있으면 body객체에 Json 타입으로 받음
+	public Member createMember(@RequestBody Member member){
 		Member result = null;
-//		result = "createUser() 호출 : " 
-//				+ "name : " + name + "phone : " + phone + "email : " + email;
 		result = memberService.createMember(member);
 		return result;
 	}
 	
+	//Json으로 받기 위해 Map 사용
 	@GetMapping("/{id}")
-	public Member getMemberById(@PathVariable String id) {
+	public Member getMemberById(@PathVariable String id){
 		Member result = null;
-//		result = "getUserById() 호출" + id;
 		result = memberService.getMemberById(id);
 		return result;
 	}
-	
+
+	//@RequestBody 없으면 form-data 형태로 받음
+	//@RequestBody 있으면 body객체에 Json 타입으로 받음
 	@PostMapping("/modify/{id}")
-	public Member updateMember(@PathVariable String id, @RequestBody Member member) {
+	public Member updateMember(@PathVariable String id, @RequestBody Member member){
 		Member result = null;
-//		result = "updateUser() 호출" + id;
 		result = memberService.updateMember(id, member);
 		return result;
 	}
 	
 	@GetMapping("/delete/{id}")
-	public Member deleteMember(@PathVariable String id) {
+	public Member deleteMember(@PathVariable String id){
 		Member result = null;
-//		result = "deleteUser() 호출" + id;
 		result = memberService.deleteMember(id);
 		return result;
 	}
-	
 }
