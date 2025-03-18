@@ -1,14 +1,17 @@
-import logo from "./logo.svg";
-import "./App.css";
-import SearchBar from "./components/SearchBar";
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BoardList from "./components/BoardList";
+import BoardDetail from "./pages/BoardDetail";
+import BoardForm from "./components/BoardForm";
 
 function App() {
-  const { searchParams, setSearchParams } = useState({});
   return (
-    <div>
-      <SearchBar onSearch={{ setSearchParams }} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<BoardList />} />
+        <Route path="/users/:id" element={<BoardDetail />} />
+        <Route path="/users/create" element={<BoardForm />} />
+      </Routes>
+    </Router>
   );
 }
 
