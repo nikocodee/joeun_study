@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { addComment } from "../services/commentService";
 
-const CommentForm = ({ boardId }) => {
+const CommentForm = ({ userId }) => {
   const [content, setContent] = useState("");
   const currentUser = "작성자123"; // 현재 로그인된 사용자 (예제)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addComment({ boardId, writer: currentUser, content });
+    await addComment({ userId, writer: currentUser, content });
     setContent("");
     window.location.reload();
   };

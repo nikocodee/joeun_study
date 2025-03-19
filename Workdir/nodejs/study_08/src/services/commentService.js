@@ -1,7 +1,6 @@
 import axios from "axios";
-import { useId } from "react";
 
-const API_URL = "http://localhost:8080/users";
+const API_URL = "http://localhost:8080/board";
 
 export const fetchComments = async (userId) => {
   const response = await axios.get(`${API_URL}/${userId}/comment`);

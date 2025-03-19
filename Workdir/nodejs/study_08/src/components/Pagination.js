@@ -47,4 +47,4 @@ const PaginationComponent = ({ totalPages, currentPage, onPageChange }) => {
   return <Pagination>{pageItems}</Pagination>;
 };
 
-export default Pagination;
+export default PaginationComponent;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Form, Button } from "react-bootstrap";
+import { Container, Table, Form, Button } from "react-bootstrap";
 import { createBoard } from "../services/boardService";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,7 @@ const BoardForm = () => {
     content: "",
   });
   const [files, setFiles] = useState([]);
+  const [fileNames, setFileNames] = useState([]);
   const navigate = useNavigate();
 
   // 입력 값 변경 핸들러
@@ -19,20 +20,15 @@ const BoardForm = () => {
 
   // 파일 추가 핸들러
   const handleFileChange = (e) => {
-    const newFiles = Array.from(e.target.files); //배열로 변환
-    const updatedFiles = [...files];
-
-    newFiles.forEach((file) => {
-      if (
-        //some은 조건을 만족하는 요소가 있으면 true
-        !updatedFiles.some((existingFile) => existingFile.name === file.name)
-      ) {
-        //배열에 추가
-        updatedFiles.push(file);
-      }
-    });
-    setFiles(updatedFiles);
-    // setFiles([...files, ...e.target.files]);
+    const newFiles = [...files, ...e.target.files];
+    setFiles(newFiles);
+    const arrFileName = newFiles.map((file) => file.name);
+    const uniqueFileNames = new Set(arrFileName);
+    setFileNames([...uniqueFileNames]);
+    console.log("arrFileName", arrFileName);
+    // const set = new Set([...files, ...e.target.files]);
+    // console.log(set);
+    // setFiles([...set]);
   };
 
   // 게시글 등록
@@ -50,7 +46,7 @@ const BoardForm = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h2>게시글 등록</h2>
       <Form onSubmit={handleSubmit}>
         <Table striped bordered>
@@ -82,7 +78,7 @@ const BoardForm = () => {
               <th>본문</th>
               <td>
                 <Form.Control
-                  as="textarea"
+                  type="textarea"
                   rows={5}
                   name="content"
                   value={formData.content}
@@ -100,8 +96,8 @@ const BoardForm = () => {
                   onChange={handleFileChange}
                 />
                 <ul>
-                  {files.map((file, index) => (
-                    <li key={index}>{file.name}</li>
+                  {fileNames.map((file, index) => (
+                    <li key={index}>{file}</li>
                   ))}
                 </ul>
               </td>
@@ -112,7 +108,7 @@ const BoardForm = () => {
           등록
         </Button>
       </Form>
-    </div>
+    </Container>
   );
 };
 

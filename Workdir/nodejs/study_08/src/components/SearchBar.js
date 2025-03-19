@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 //useState는 값이 변하면 다시 렌더링함
-const SearchBar = ({ onSearch }) => {
+function SearchBar({ onSearch }) {
   const [searchParams, setSearchParams] = useState({
     // 초기값 지정
     writer: "",
@@ -72,6 +72,6 @@ const SearchBar = ({ onSearch }) => {
       </Row>
     </Form>
   );
-};
+}
 
 export default SearchBar;

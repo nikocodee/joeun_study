@@ -3,23 +3,23 @@ import { ListGroup } from "react-bootstrap";
 import { fetchComments } from "../services/commentService";
 import CommentForm from "./CommentForm";
 
-const CommentList = (userId) => {
-  const [comments, setCommnets] = useState([]);
+const CommentList = ({ boardId }) => {
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    const loadCommnets = async () => {
-      const data = await fetchComments(userId);
-      setCommnets(data);
+    const loadComments = async () => {
+      const data = await fetchComments(boardId);
+      setComments(data);
     };
-    loadCommnets();
-  }, [userId]);
+    loadComments();
+  }, [boardId]);
 
   const renderComments = (comments, level = 0) => {
-    if (level > 2) return null;
+    if (level > 2) return null; // 댓글 3단계까지 제한
 
     return comments.map((comment) => (
       <ListGroup.Item
-        key={comment.writer}
+        key={comment.id}
         style={{ marginLeft: `${level * 20}px` }}
       >
         <strong>{comment.writer}</strong>: {comment.content}
@@ -31,7 +31,7 @@ const CommentList = (userId) => {
   return (
     <>
       <ListGroup>{renderComments(comments)}</ListGroup>
-      <CommentForm userId={userId} />
+      <CommentForm boardId={boardId} />
     </>
   );
 };

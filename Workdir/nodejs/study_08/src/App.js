@@ -8,8 +8,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<BoardList />} />
-        <Route path="/users/:id" element={<BoardDetail />} />
-        <Route path="/users/create" element={<BoardForm />} />
+        <Route path="/board/:id" element={<BoardDetail />} />
+        <Route path="/board/create" element={<BoardForm />} />
       </Routes>
     </Router>
   );

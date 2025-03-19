@@ -14,18 +14,20 @@ const BoardList = () => {
 
   useEffect(() => {
     const loadBoards = async () => {
+      console.log("loadBoards Call!!");
       const response = await fetchBoards({
         page: currentPage,
         ...searchParams,
       });
+      console.log(JSON.stringify(response));
       setBoards(response.content);
       setTotalPages(response.totalPages);
     };
     loadBoards();
+    console.log(boards);
   }, [currentPage, searchParams]);
-
   return (
-    <Container>
+    <div className="container mt-5">
       <SearchBar onSearch={setSearchParams} />
       <Table striped bordered hover>
         <thead>
@@ -59,7 +61,7 @@ const BoardList = () => {
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
-    </Container>
+    </div>
   );
 };
 

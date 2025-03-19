@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Button, Form } from "react-bootstrap";
+import CommentList from "../components/CommentList";
 import { fetchBoardDetail, updateBoard } from "../services/boardService";
 import { useParams } from "react-router-dom";
-import CommentList from "../components/CommentList";
 
 const BoardDetail = () => {
   const { id } = useParams();
@@ -90,7 +90,7 @@ const BoardDetail = () => {
       )}
 
       <h3>댓글</h3>
-      <CommentList userId={id} />
+      {/* <CommentList userId={id} /> */}
     </div>
   );
 };
