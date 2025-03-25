@@ -38,7 +38,7 @@ const BoardForm = () => {
     data.append("title", formData.title);
     data.append("writer", formData.writer);
     data.append("content", formData.content);
-    files.forEach((file) => data.append("files", file));
+    files.forEach((file) => data.append("file", file));
 
     await createBoard(data);
     alert("게시글이 등록되었습니다.");

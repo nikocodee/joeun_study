@@ -1,6 +1,8 @@
 package com.learn.vo;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class BoardVO {
 	private Long id;
@@ -8,11 +10,14 @@ public class BoardVO {
 	private String writer;
 	private String content;
 	private int views;
-	private LocalDateTime createdAt;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy년 MM월 dd일", timezone = "Asia/Seoul")
+	private Timestamp createdAt;
+	private String createdDisp;
 	private String createdId;
-	private LocalDateTime updatedAt;
+	private Timestamp updatedAt;
 	private String updatedId;
 	private String useYn;
+	private String formattedDate;
 
 	public BoardVO() {
 	}
@@ -63,11 +68,11 @@ public class BoardVO {
 		this.views = views;
 	}
 
-	public LocalDateTime getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
@@ -79,11 +84,11 @@ public class BoardVO {
 		this.createdId = createdId;
 	}
 
-	public LocalDateTime getUpdatedAt() {
+	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(LocalDateTime updatedAt) {
+	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
@@ -103,11 +108,27 @@ public class BoardVO {
 		this.useYn = useYn;
 	}
 
+	public String getCreatedDisp() {
+		return createdDisp;
+	}
+
+	public void setCreatedDisp(String createdDisp) {
+		this.createdDisp = createdDisp;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [id=" + id + ", title=" + title + ", writer=" + writer + ", content=" + content + ", views="
-				+ views + ", createdAt=" + createdAt + ", createdId=" + createdId + ", updatedAt=" + updatedAt
-				+ ", updatedId=" + updatedId + ", useYn=" + useYn + "]";
+				+ views + ", createdAt=" + createdAt + ", createdDisp=" + createdDisp + ", createdId=" + createdId
+				+ ", updatedAt=" + updatedAt + ", updatedId=" + updatedId + ", useYn=" + useYn + "]";
 	}
+
+    public String getFormattedDate() {
+        return formattedDate;
+    }
+
+    public void setFormattedDate(String formattedDate) {
+        this.formattedDate = formattedDate;
+    }
 
 }

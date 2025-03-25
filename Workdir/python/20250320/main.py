@@ -1,5 +1,5 @@
 # main.py
-from fastapi import FastAPI
+from fastapi import FastAPI, Form, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
 # 서버 객체 생성
@@ -33,3 +33,11 @@ def getBoardById(id: int):
     "views": 13
 }
     return content
+
+# 3. POST 요청: 게시물 등록페이지 API
+#...은 여러개라는 뜻
+@app.post("/board")
+async def createBoard(writer: str = Form(...), title: str = Form(...), content: str = Form(...), file: UploadFile = File(...)  ):
+    fileBody = await file.read()
+    result = {"writer": writer, "Title": title, "File Size": len(fileBody), "file": file.name}
+    return result
