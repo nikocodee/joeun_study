@@ -1,9 +1,16 @@
 # main.py
 from fastapi import FastAPI, Form, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+# 타입캐스팅하기 위한 import
+from typing import List
+import uuid
+import os
 
 # 서버 객체 생성
 app = FastAPI()
+
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok = True)
 
 # CORS 미들웨어 추가
 app.add_middleware(
@@ -35,9 +42,37 @@ def getBoardById(id: int):
     return content
 
 # 3. POST 요청: 게시물 등록페이지 API
-#...은 여러개라는 뜻
+# ...은 정보가 여러개라는 뜻
 @app.post("/board")
-async def createBoard(writer: str = Form(...), title: str = Form(...), content: str = Form(...), file: UploadFile = File(...)  ):
-    fileBody = await file.read()
-    result = {"writer": writer, "Title": title, "File Size": len(fileBody), "file": file.name}
+async def createBoard(writer: str = Form(...), title: str = Form(...), content: str = Form(...), file: List[UploadFile] = File(...)):
+    # 응답 기본 구조
+    result = {"writer": writer, "Title": title, "Content": content, "Files":[]}
+    # 파일 리스트 확인
+    cond = len(file) > 0
+    if(cond):
+        for attach in file:
+            # 파일 읽기
+            fileBody = await attach.read()
+            #fileJson = {"writer": writer, "Title": title, "File Size": len(fileBody), "file": attach.filename}
+            #fileJson = {f"writer": writer, "Title": title, "File Size": len(fileBody), attach.filename: uuid.uuid4()}
+            #result.append(fileJson)
+            
+            # UUID 기반 파일 이름 생성
+            uuidName = uuid.uuid4()
+            filePath = os.path.join(UPLOAD_FOLDER, str(uuidName))
+            
+            # with는 자동으로 close해 줌
+            #with open(f"./uploads/{uuidName}_{attach.filename}", "wb") as f:
+            #with open(f"./uploads/{uuidName}", "wb") as f:
+            
+            # 파일 정보 추가
+            fileJson = {"original_name": attach.filename, "uuid_filename":  str(uuidName)}
+            result["Files"].append(fileJson)
+            
+            # 파일 저장
+            with open(filePath, "wb") as f:
+                f.write(fileBody)
+                print("Save OK!!!")
+            
+
     return result

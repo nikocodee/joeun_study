@@ -13,7 +13,7 @@
     </insert>
     
     <select id="getUserById" parameterType="long" resultType="com.learn.vo.UserVO">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT id, name, phone FROM user WHERE id = #{id}
     </select>
     
     <update id="updateUser">

@@ -7,12 +7,15 @@
     <select id="getBoards" resultType="com.learn.vo.BoardVO">
         SELECT *
           FROM board
+         WHERE 1=1
+           AND use_yn = 'Y' 
     </select>
 
     <select id="getBoardById" parameterType="long" resultType="com.learn.vo.BoardVO">
         SELECT * 
           FROM board 
          WHERE id = #{id}
+           AND use_yn = 'Y' 
     </select>
     
     <insert id="createBoard" useGeneratedKeys="true" keyProperty="id">
