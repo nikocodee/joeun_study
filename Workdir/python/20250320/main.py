@@ -1,13 +1,16 @@
 # main.py
-from fastapi import FastAPI, Form, UploadFile, File
+from fastapi import FastAPI, Request, Form, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 # 타입캐스팅하기 위한 import
 from typing import List
 import uuid
 import os
+from starlette.middleware.sessions import SessionMiddleware
 
 # 서버 객체 생성
 app = FastAPI()
+
+app.add_middleware(SessionMiddleware, secret_key="super-secret-key111", max_age = 1800)
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok = True)
@@ -23,17 +26,19 @@ app.add_middleware(
 
 # 1. GET 요청: 전체 게시물 목록 조회하는 API
 @app.get("/board")
-def getBoards():
+def getBoards(req: Request):
+    req.session["userId"] = "test"
     content = [{"writer":"Writer name","id":1,"title":"title test ","content":"test content1 "},{"writer":"Writer name2","id":2,"title":"title test2","content":"test content2"}]
     return {"content": content, "totalPages": 100}
 
 # 2. GET 요청: 게시물 상세페이지 조회하는 API
 # path variable 필수 요소에만 사용
 @app.get("/board/{id}")
-def getBoardById(id: int):
+def getBoardById(id: int, req: Request):
     content = {
     "createdAt": "2025/05/05",
-    "writer": "writer test",
+    #"writer": "writer test",
+    "writer": req.session.get("userId"),
     "id": id,
     "title": f"test title {id}",
     "content": "content text",
@@ -44,7 +49,7 @@ def getBoardById(id: int):
 # 3. POST 요청: 게시물 등록페이지 API
 # ...은 정보가 여러개라는 뜻
 @app.post("/board")
-async def createBoard(writer: str = Form(...), title: str = Form(...), content: str = Form(...), file: List[UploadFile] = File(...)):
+async def createBoard(req: Request, writer: str = Form(...), title: str = Form(...), content: str = Form(...), file: List[UploadFile] = File(...)):
     # 응답 기본 구조
     result = {"writer": writer, "Title": title, "Content": content, "Files":[]}
     # 파일 리스트 확인
@@ -74,5 +79,6 @@ async def createBoard(writer: str = Form(...), title: str = Form(...), content: 
                 f.write(fileBody)
                 print("Save OK!!!")
             
-
+    req.session.clear()
+    result["writer"] = req.session.get("userId")
     return result
