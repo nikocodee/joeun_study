@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.learn.service.BoardService;
 import com.learn.vo.BoardVO;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -35,9 +36,13 @@ public class BoardController {
 
 	// get방식은 query string으로 받음
 	@GetMapping
-	public Map<String, Object> getBoards(@RequestParam Map<String, Object> params) {
-//		log.info("*** getBoards Call! ***");
-
+	public Map<String, Object> getBoards(@RequestParam Map<String, Object> params, HttpSession session) {
+		log.info("*** getBoards Call! ***");
+		
+		session.setAttribute("userId", "test");
+		String userId = (String)session.getAttribute("userId");
+		log.info("###### getBoards.userId.log ######"+userId);
+		
 		//boardVO 데이터외에 추가 정보(추가 메타데이터)까지 담을 때는 Map을 사용
 		//추가 메타데이터는 리스트 외에 API 응답에 포함되는 부가적인 정보를 의미
 		Map<String, Object> result = new HashMap<>();
@@ -88,10 +93,13 @@ public class BoardController {
 	}
 
 	@PostMapping
-	public Map<String, Object> createBoard(MultipartHttpServletRequest req) {
+	public Map<String, Object> createBoard(MultipartHttpServletRequest req, HttpSession session) {
 		Map<String, Object> result = new HashMap<>();
 		
 		List<MultipartFile> files = new ArrayList<>();
+		
+		String userId = (String)session.getAttribute("userId");
+		log.info("###### creatBoard.userId.log ######"+userId);
 		
 		String writer = req.getParameter("writer");
 		String title = req.getParameter("title");
@@ -108,6 +116,7 @@ public class BoardController {
 		}
 
 		result = boardService.createBoard(boardVO, files);
+		session.invalidate();
 
 		return result;
 	}
