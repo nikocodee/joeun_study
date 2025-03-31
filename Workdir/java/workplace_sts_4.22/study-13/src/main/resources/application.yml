@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: study-13
+    
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+
+  redis:
+    host: localhost
+    port: 6379
+  session:
+    store-type: redis
+    timeout: 1m
