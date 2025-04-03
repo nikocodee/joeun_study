@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kafka WebSocket Listener</taitle>
+</head>
+<body>
+  <h2>Kafka 메시지 실시간 수신</h2>
+  <pre id="messages"></pre>
+
+  <script>
+    const ws = new WebSocket("ws://localhost:8000/ws");
+
+    ws.onmessage = (event) => {
+      const pre = document.getElementById("messages");
+      const msg = JSON.parse(event.data);
+	  pre.innerText += `\n📩 [Kafka 메시지] user_id=${msg.user_id}, action=${msg.action}`;
+    };
+
+    ws.onopen = () => {
+      console.log("✅ WebSocket 연결됨");
+      ws.send("ping");
+    };
+
+    ws.onclose = () => {
+      console.log("❌ WebSocket 연결 종료");
+    };
+  </script>
+</body>
+</html>
