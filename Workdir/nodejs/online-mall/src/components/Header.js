@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,6 +13,17 @@ function Header() {
       }}
     >
       <h1>Online Mall</h1>
+      <nav>
+        <Link to="/" style={{ color: "#fff", margin: "0 10px" }}>
+          Home
+        </Link>
+        <Link to="/products" style={{ color: "#fff", margin: "0 10px" }}>
+          Products
+        </Link>
+        <Link to="/cart" style={{ color: "#fff", margin: "0 10px" }}>
+          Cart
+        </Link>
+      </nav>
     </header>
   );
 }
