@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { fetchProducts } from "../services/productService";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
 
 function Home() {
   // const products = [
@@ -10,6 +12,8 @@ function Home() {
 
   const [products, setProducts] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+
+  const dispatch = useDispatch();
 
   // useEffect(() => {
   //   const fetchProducts = () => {
@@ -39,21 +43,24 @@ function Home() {
     search();
   }, []);
 
-  function handleAddToCart() {
-    setCartCount(cartCount + 1);
+  function handleAddToCart(product) {
+    // setCartCount(cartCount + 1);
+    dispatch(addToCart(product));
   }
 
   return (
     <div>
       <h1>Welcome to Online Mall</h1>
-      <p>Cart Items: {cartCount}</p>
+      {/* <p>Cart Items: {cartCount}</p> */}
       <div className="product-list">
         {products.map((product) => (
           <ProductCard
             key={product.id}
             name={product.name}
             price={product.price}
-            onAddToCart={handleAddToCart}
+            onAddToCart={() => {
+              handleAddToCart(product);
+            }}
           />
         ))}
       </div>
