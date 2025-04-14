@@ -8,6 +8,7 @@ public class ProductVO {
 	private Long id;
 	private String name;
 	private Long price;
+	private String imageUrl;
 	private String createdId;
 	private Timestamp createdAt;
 	private String updatedId;
@@ -44,6 +45,14 @@ public class ProductVO {
 
 	public void setPrice(Long price) {
 		this.price = price;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public String getCreatedId() {
@@ -88,9 +97,9 @@ public class ProductVO {
 
 	@Override
 	public String toString() {
-		return "ProductVO [id=" + id + ", name=" + name + ", price=" + price + ", createdId=" + createdId
-				+ ", createdAt=" + createdAt + ", updatedId=" + updatedId + ", updatedAt=" + updatedAt + ", ueeYn="
-				+ ueeYn + "]";
+		return "ProductVO [id=" + id + ", name=" + name + ", price=" + price + ", imageUrl=" + imageUrl + ", createdId="
+				+ createdId + ", createdAt=" + createdAt + ", updatedId=" + updatedId + ", updatedAt=" + updatedAt
+				+ ", ueeYn=" + ueeYn + "]";
 	}
 
 }

@@ -20,7 +20,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@GetMapping("/products")
+	@GetMapping("/api/products")
 //	public List<ProductVO> getAllProducts(@RequestBody HashMap<String, Object> form) {
 	public List<ProductVO> getAllProducts() {
 		// 클래서처럼 모아서 보려고 임시로 Map 사용
@@ -47,6 +47,23 @@ public class ProductController {
 
 		List<ProductVO> result = null;
 		result = productService.getAllProducts();
+
+		return result;
+	}
+	
+	
+	@GetMapping("/api/product")
+	public Map<String, Object> getProductByCategory(String category) {
+//	public List<ProductVO> getAllProducts() {
+		Map<String, Object> result = new HashMap<>();
+		result.put("id", category);
+		result.put("name", "Laptop");
+		result.put("price", 1200);
+		result.put("description", "description test");
+		result.put("imageUrl", "/img/1234");
+
+//		List<ProductVO> result = null;
+//		result = productService.getAllProducts();
 
 		return result;
 	}
