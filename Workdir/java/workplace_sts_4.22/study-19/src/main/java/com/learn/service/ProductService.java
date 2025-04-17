@@ -13,9 +13,39 @@ public class ProductService {
 	@Autowired
 	private ProductMapper productMapper;
 	
+	public int createProduct(ProductVO product){
+		int result = 0;
+		result = productMapper.createProduct(product);
+		return result;
+	}
+	
 	public List<ProductVO> getAllProducts(){
 		List<ProductVO> result = null;
 		result = productMapper.getAllProducts();
+		return result;
+	}
+	
+	public ProductVO getProductDetail(String id) {
+		ProductVO result = null;
+		result = productMapper.getProductDetail(id);
+		return result;
+	}
+	
+	public List<ProductVO> searchProduct(String keyword){
+		List<ProductVO> result = null;
+		result = productMapper.searchProduct(keyword);
+		return result;
+	}
+	
+	public int updateProduct(ProductVO product){
+		int result = 0;
+		result = productMapper.updateProduct(product);
+		return result;
+	}
+	
+	public int deleteProduct(String id){
+		int result = 0;
+		result = productMapper.deleteProduct(id);
 		return result;
 	}
 }

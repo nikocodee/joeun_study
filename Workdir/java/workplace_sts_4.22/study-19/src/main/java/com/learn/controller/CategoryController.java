@@ -56,4 +56,18 @@ public class CategoryController {
 		result = categoryService.getCategoryByParentIdAndDepth(id, depth);
 		return result;
 	}
+	
+	@PostMapping("/update")
+	public CategoryVO updateCategory(@RequestBody CategoryVO category){
+		CategoryVO result = null;
+		result = categoryService.updateCategory(category);
+		return result;
+	}
+	
+	@GetMapping("/delete/{id}")
+	public CategoryVO deleteCategory(@PathVariable String id){
+		CategoryVO result = null;
+		result = categoryService.deleteCategory(id);
+		return result;
+	}
 }

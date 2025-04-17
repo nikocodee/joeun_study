@@ -13,7 +13,7 @@ public class ProductVO {
 	private Timestamp createdAt;
 	private String updatedId;
 	private Timestamp updatedAt;
-	private String ueeYn;
+	private String useYn;
 
 	public ProductVO() {
 	}
@@ -25,10 +25,6 @@ public class ProductVO {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -87,19 +83,23 @@ public class ProductVO {
 		this.updatedAt = updatedAt;
 	}
 
-	public String getUeeYn() {
-		return ueeYn;
+	public String getUseYn() {
+		return useYn;
 	}
 
-	public void setUeeYn(String ueeYn) {
-		this.ueeYn = ueeYn;
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "ProductVO [id=" + id + ", name=" + name + ", price=" + price + ", imageUrl=" + imageUrl + ", createdId="
-				+ createdId + ", createdAt=" + createdAt + ", updatedId=" + updatedId + ", updatedAt=" + updatedAt
-				+ ", ueeYn=" + ueeYn + "]";
+		return "ProductVO [id=" + id + ", name=" + name + ", price=" + price + ", createdId=" + createdId
+				+ ", createdAt=" + createdAt + ", updatedId=" + updatedId + ", updatedAt=" + updatedAt + ", useYn="
+				+ useYn + "]";
 	}
 
 }
