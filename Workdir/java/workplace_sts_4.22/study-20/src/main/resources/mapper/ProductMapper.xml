@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper SYSTEM "../mybatis-3-mapper.dtd">
+
+<mapper namespace="com.learn.mapper.ProductMapper">
+	
+	<insert id="createProduct" parameterType="com.learn.vo.ProductVO">
+		INSERT INTO 
+		  product(   
+		  	name ,  
+		  	price ,  
+		  	imageUrl , 
+		  	description,
+		  	stock,
+		  	rating,
+		  	category, 
+		  	created_id, 
+		  	created_at
+		  	)
+		     VALUES ( 
+		     #{name}, 
+		     #{price}, 
+		     #{imageUrl}, 
+		  	 #{description},
+		  	 #{stock},
+		  	 #{rating},
+		  	 #{category}, 		     
+		     #{createdId}, 
+		     CURRENT_TIMESTAMP)
+	</insert>
+
+    <select id="getAllProducts" resultType="com.learn.vo.ProductVO">
+        SELECT *
+          FROM product
+         WHERE 1=1 
+           AND use_yn = 'Y'
+    </select>
+    
+    <select id="getProductDetail" resultType="com.learn.vo.ProductVO">
+        SELECT *
+          FROM product
+         WHERE 1=1 
+           AND use_yn = 'Y'
+           AND id = #{id} 
+           
+    </select>
+    
+    <select id="searchProduct" resultType="com.learn.vo.ProductVO">
+        SELECT *
+          FROM product
+         WHERE 1=1 
+           AND use_yn = 'Y'
+           <if test="keyword != null and keyword != ''">
+           AND name LIKE CONCAT('%',#{keyword},'%')
+           </if>
+    </select>
+    
+    <select id="getProductByCategory" resultType="com.learn.vo.ProductVO">
+        SELECT *
+          FROM product
+         WHERE 1=1 
+           AND use_yn = 'Y'
+           AND category = #{category} 
+           
+    </select>
+    
+	<update id="updateProduct" parameterType="com.learn.vo.ProductVO">
+		UPDATE product
+		   SET name = #{name},
+		       price = #{price},
+		       imageUrl = #{imageUrl},
+		       description = #{description},
+		       stock = #{stock},
+		       rating = ${rating},
+			   category = #{category},	
+		       <if test="updatedId != null and updatedId != ''">
+		       updated_id = #{updatedId},
+		       </if>
+		       <if test="updatedId == null or updatedId == ''">
+		       updated_id = '-',
+		       </if>
+		       updated_at = NOW()
+		 WHERE id = #{id}   		       
+	</update>
+	
+	<update id="deleteProduct">
+		UPDATE product
+		   SET use_yn = 'N'
+		 WHERE id = #{id}   
+	</update>
+</mapper>

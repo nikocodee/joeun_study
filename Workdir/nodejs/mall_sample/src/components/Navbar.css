@@ -1,0 +1,58 @@
+.main-navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.main-navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.main-navbar .nav-link {
+  color: #555;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.main-navbar .nav-link:hover {
+  color: #007bff;
+}
+
+.main-navbar .navbar-toggler {
+  border: none;
+}
+
+.main-navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.main-navbar .dropdown-menu {
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-navbar .dropdown-item {
+  padding: 8px 15px;
+}
+
+.cart-icon-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart-icon-link i {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -25%);
+  font-size: 0.65rem;
+  padding: 0.25rem 0.4rem;
+} 
