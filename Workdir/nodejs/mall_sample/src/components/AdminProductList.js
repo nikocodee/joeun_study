@@ -90,9 +90,9 @@ function AdminProductList() {
       price: 0,
       stock: 0,
       imageUrl: "https://picsum.photos/500",
-      category: "0",
-      rating: 1.0,
-      // specs: [{ key: '', value: '' }]
+      category: "기타",
+      rating: 0,
+      specs: [{ key: "", value: "" }],
     });
     setShowAddModal(true);
   };

@@ -50,7 +50,7 @@ function ProductDetail() {
           price: 10000 * parseInt(id),
           description:
             "이 상품에 대한 상세 설명입니다. 다양한 용도로 사용할 수 있는 제품으로, 품질이 우수하고 내구성이 뛰어납니다. 고객 만족도가 매우 높은 제품입니다.",
-          imageUrl: "https://via.placeholder.com/500",
+          imageUrl: "https://picsum.photos/500",
           category: "일반",
           stock: 100,
           rating: 4.5,

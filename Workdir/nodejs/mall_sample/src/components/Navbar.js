@@ -1,10 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar as BootstrapNavbar, Nav, Container, NavDropdown, Badge } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Nav, Container, NavDropdown, Badge, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Navbar.css';
 
 function Navbar() {
   const [cartItemCount, setCartItemCount] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // 카테고리 정보 가져오기
+  useEffect(() => {
+    const fetchCategories = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await axios.get("http://localhost:8080/api/categories");
+        setCategories(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("카테고리 정보를 가져오는데 실패했습니다:", err);
+        setError("카테고리 로딩 실패");
+        // 에러 발생 시 더미 데이터 사용
+        const dummyCategories = [
+          { id: 1, name: "패션" },
+          { id: 2, name: "가전" },
+          { id: 3, name: "식품" },
+          { id: 4, name: "생활" },
+          { id: 5, name: "스포츠" },
+          { id: 6, name: "도서" },
+          { id: 7, name: "취미" },
+          { id: 8, name: "뷰티" },
+        ];
+        setCategories(dummyCategories);
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   // 장바구니 아이템 개수 계산 및 업데이트
   useEffect(() => {
@@ -36,6 +71,31 @@ function Navbar() {
     }
   };
 
+  // 카테고리 드롭다운 렌더링
+  const renderCategoryDropdown = () => {
+    if (loading) {
+      return (
+        <NavDropdown.Item>
+          <Spinner animation="border" size="sm" /> 로딩 중...
+        </NavDropdown.Item>
+      );
+    }
+
+    if (error && categories.length === 0) {
+      return <NavDropdown.Item className="text-danger">{error}</NavDropdown.Item>;
+    }
+
+    return categories.map(category => (
+      <NavDropdown.Item 
+        key={category.id} 
+        as={Link} 
+        to={`/category/${category.id}`}
+      >
+        {category.name}
+      </NavDropdown.Item>
+    ));
+  };
+
   return (
     <BootstrapNavbar bg="light" expand="lg" className="main-navbar">
       <Container>
@@ -44,10 +104,11 @@ function Navbar() {
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">홈</Nav.Link>
-            <Nav.Link as={Link} to="/category/1">패션</Nav.Link>
-            <Nav.Link as={Link} to="/category/2">가전</Nav.Link>
-            <Nav.Link as={Link} to="/category/3">식품</Nav.Link>
-            <Nav.Link as={Link} to="/category/4">생활</Nav.Link>
+            
+            <NavDropdown title="카테고리" id="category-dropdown">
+              {renderCategoryDropdown()}
+            </NavDropdown>
+            
             <Nav.Link as={Link} to="/image-upload">이미지 업로드</Nav.Link>
             
             <NavDropdown title="관리자" id="admin-dropdown">
