@@ -1,0 +1,57 @@
+1. 테이블명 중복
+
+다른 팀원들과 중복되는 테이블명 단수/복수말고 
+admin/management같은 이름 붙인다던지 
+다른 이름으로 수정 부탁드렸었는데~ 
+다른건 너무 좋은데요!!
+-> 제꺼에 reservation 테이블 존재 > 협업에 혼란 + 어려움,,
+
+** reservations 테이블만 수정해주세용
+** 다른 테이블 수정하신것처럼 admin_reservation이라던지,,?
+
+2. FK의 여러개 존재
+
+users 테이블의 username를 참조
+users 테이블의 email를 참조
+users 테이블의 password를 참조
+
+facilitys 테이블의 member_id 를 참조
+facilitys 테이블의 facility_name를 참조
+facilitys 테이블의 facility_address_location를 참조
+facilitys 테이블의 facility_address_city를 참조
+
+위에 해주신거 보시면 
+같은 하나의 테이블에 여러 컬럼을 참조하고 있는데
+일반적으로 테이블 간의 관계를 설정할 때 필요한 키만 참조하고
+이렇게 여러 개의 컬럼을 직접 참조하는 방식은 흔하지 않을 것 같아요
+그리고, FK는 보통 참조하는 테이블의 PK를 대상으로 설정해야해용,,
+
+** 하나만 참조해주시는게 좋을 것 같아용
+** 예시) users테이블의 member_id
+** 예시) facility테이블의 facility_id
+
+
+3. 다중 참조 존재
+
+users 테이블의 member_id를 참조
+caregiver 테이블의 member_id를 참조
+facilitys 테이블의 member_id를 참조
+
+위에 해주신거 보시면
+이중 삼중으로 FK를 거셨던데
+보통은 원본 테이블을 참조하거든요..
+이런 관계로 하면 나중에 삭제하거나 할때 복잡해질 것 같아용
+
+** 원본테이블인 users 테이블로 통일
+
+4. PK의 설정 모호
+
+지금 PK들 보시면 한솔님 테이블만의 고유한 키가 아닌것 같고
+이름 보시면 다른 팀원 테이블의 PK들로 보여지거든요
+관계가 명확해지지 않음,,
+그런데 PK로만 되어있고 FK도 안되어있어서용,,
+관계설정을 다시 하셔서 PK 지정해주셔야할 것 같아용
+
+** 한솔님 테이블만의 새로운 PK(admin_facility_id 같은)를 추가하고
+** 다름 팀원들의 PK로 보이는 키들은 FK로 잡는게 맞을 것 같아용
+
