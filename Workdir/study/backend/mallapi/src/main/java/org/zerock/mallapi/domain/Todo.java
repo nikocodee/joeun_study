@@ -21,8 +21,10 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Todo {
-    
+// 데이터베이스 엔티티(Entity)
+// DB 데이블과 직접 연결된 객체
+public class Todo { 
+    // 기본키 생성
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tno;

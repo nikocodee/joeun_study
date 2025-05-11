@@ -82,4 +82,4 @@ public class TodoRepositoryTests {
 
         result.getContent().stream().forEach(todo -> log.info(todo));
     }
-}
+} 
