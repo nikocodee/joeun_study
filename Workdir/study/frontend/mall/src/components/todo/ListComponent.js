@@ -17,7 +17,7 @@ const initState = {
 };
 
 const ListComponent = () => {
-  const { page, size, moveToList } = useCustomMove();
+  const { page, size, refresh, moveToList } = useCustomMove();
 
   const [serverData, setServerData] = useState(initState);
 
@@ -26,7 +26,7 @@ const ListComponent = () => {
       console.log(data);
       setServerData(data);
     });
-  }, [page, size]);
+  }, [page, size, refresh]);
 
   return (
     <div className="border-2 border-blue-100 mt-10 mr-2 ml-2">
@@ -51,7 +51,10 @@ const ListComponent = () => {
         ))}
       </div>
       {/* Todo List Component */}
-      <PageComponent serverData={serverData} movePage={moveToList}></PageComponent>
+      <PageComponent
+        serverData={serverData}
+        movePage={moveToList}
+      ></PageComponent>
     </div>
   );
 };
