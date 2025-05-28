@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { getOne } from "../../api/ProductApi";
+import { deleteOne, getOne, putOne } from "../../api/ProductApi";
 import FetchingModal from "../common/FetchingModal";
 import { API_SERVER_HOST } from "../../api/todoApi";
+import useCustomMove from "../../hooks/useCustomMove";
+import ResultModal from "../common/ResultModal";
 
 const initState = {
   pno: 0,
@@ -18,6 +20,8 @@ const ModifyComponent = ({ pno }) => {
   const [product, setProduct] = useState(initState);
   const [fetching, setFetching] = useState(false);
   const uploadRef = useRef();
+  const [result, setResult] = useState(null);
+  const { moveToRead, moveToList } = useCustomMove();
 
   useEffect(() => {
     setFetching(true);
@@ -43,9 +47,62 @@ const ModifyComponent = ({ pno }) => {
     setProduct({ ...product });
   };
 
+  const handleClickModify = () => {
+    const files = uploadRef.current.files;
+
+    const formData = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
+
+    formData.append("pname", product.pname);
+    formData.append("pdesc", product.pdesc);
+    formData.append("price", product.price);
+    formData.append("delFlag", product.delFlag);
+
+    for (let i = 0; i < product.uploadFileNames.length; i++) {
+      formData.append("uploadFileNames", product.uploadFileNames[i]);
+    }
+
+    setFetching(true);
+
+    putOne(pno, formData).then((data) => {
+      setResult("Modified");
+      setFetching(false);
+    });
+  };
+
+  const handleClickDelete = () => {
+    setFetching(true);
+
+    deleteOne(pno).then((data) => {
+      setResult("Deleted");
+      setFetching(false);
+    });
+  };
+
+  const closeModal = () => {
+    if (result === "Modified") {
+      moveToRead(pno);
+    } else if (result === "Deleted") {
+      moveToList({ page: 1 });
+    }
+    setResult(null);
+  };
+
   return (
     <div className="border-2 border-sky-200 mt-10 m-2 p-4">
-      {fetching && <FetchingModal />}
+      {fetching ? <FetchingModal /> : <></>}
+      {result ? (
+        <ResultModal
+          title={`${result}`}
+          content={"정상적으로 처리되었습니다."}
+          callbackFn={closeModal}
+        />
+      ) : (
+        <></>
+      )}
 
       <div className="flex justify-center">
         <div className="relative mb-4 flex w-full flex-wrap items-stretch">
@@ -117,12 +174,12 @@ const ModifyComponent = ({ pno }) => {
         <div className="relative mb-4 flex w-full flex-wrap items-stretch">
           <div className="w-1/5 p-6 text-right font-bold">Images</div>
           <div className="w-4/5 justify-center flex flex-wrap items-start">
-            {product.uploadFileNames.map((imgFile, index) => (
-              <div
-                className="flex justify-center flex-col w-1/3 m-1 align-baseline"
-                key={index}
-              >
-                <button className="bg-blue-400 text-3xl text-white">
+            {product.uploadFileNames.map((imgFile, i) => (
+              <div className="flex justify-center flex-col w-1/3" key={i}>
+                <button
+                  className="bg-blue-400 text-3xl text-white"
+                  onClick={() => deleteOldImages(imgFile)}
+                >
                   DELETE
                 </button>
                 <img alt="img" src={`${host}/api/products/view/s_${imgFile}`} />
@@ -130,6 +187,29 @@ const ModifyComponent = ({ pno }) => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="flex justify-end p-4">
+        <button
+          type="button"
+          className="rounded p-4 m-2 text-xl w-32 text-white bg-red-500"
+          onClick={handleClickDelete}
+        >
+          Delete
+        </button>
+        <button
+          type="button"
+          className="inline-block rounded p-4 m-2 text-xl w-32 text-white bg-orange-500"
+          onClick={handleClickModify}
+        >
+          Modify
+        </button>
+        <button
+          type="button"
+          className="rounded p-4 m-2 text-xl w-32 text-white bg-blue-500"
+          onClick={moveToList}
+        >
+          List
+        </button>
       </div>
     </div>
   );
